@@ -16,8 +16,7 @@ int main(){
 	printf("Como gostaria de ser chamado?\n");
 	scanf("%s", nome);
 	
-	printf("%s, classes...", nome);
+	printf("%s, classes", nome);
 	
-	getch();
 	return 0;
 }
