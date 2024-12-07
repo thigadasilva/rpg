@@ -3,62 +3,31 @@
 #include <string.h>
 #include <conio.h>
 #include <stdlib.h>
+#include "personagem.h" // dados do personagem
 
 // Atributos:
-typedef struct{
-	char nome[16];
-	int ipv;
-	int iforca;
-	int iconstituicao;
-	int idestreza;
-	int iagilidade;
-	int iinteligencia;
-	int ipercepcao;
-	int icarisma;
-	int xp;
-	int nivel;
-} atributos;
 
 int main(){
 setlocale(LC_ALL, "Portuguese");
 	
-	atributos personagem[1];
-	// atribuindo atributos padrões:
+	Atributos personagem[1];
 
-	for(int i = 0; i < 1; i++){
-		personagem[1].ipv = 20;
-		personagem[1].iforca = 0;
-		personagem[1].iconstituicao = 0;
-		personagem[1].idestreza = 0;
-		personagem[1].iagilidade = 0;
-		personagem[1].iinteligencia = 0;
-		personagem[1].ipercepcao = 0;
-		personagem[1].icarisma = 0;
-		personagem[1].xp = 0;
-		personagem[1].nivel = 0;
-	}
-	
 	int classe, i;
 	int letras = 0;
 	
 	printf("Bem vindo a sua próxima aventura! Vamos criar o seu personagem!\n");
+	// Verificação se o nome tem mais de 15 letras
 	do{
 	printf("Insira seu nome:\n");
-	gets(personagem[1].nome);
-	letras = strlen(personagem[1].nome);
+	gets(personagem[0].nome);
+	letras = strlen(personagem[0].nome);
 		if(letras > 15){
 			printf("\nNão é possível inserir um nome com mais de 15 letras.\n");	
 		}
 	} while(letras > 15);
-	printf("\nHora de escolher a sua classe, %s!\n", personagem[1].nome);
-
-
-	
-	
-	
-	
-	
-
+	// Escolha de Classe
+	inicializarPersonagens(&personagem, 0);
+	printf("\nHora de escolher a sua classe, %s!\n", personagem[0].nome);
 	printf("\nEscolha uma das classes a seguir:\n1 - Guerreiro - Altos níveis de Força e Constituição iniciais.\n");
 	printf("2 - Mago - Altos níveis de Inteligência e Percepção iniciais.\n");
 	printf("3 - Engenheiro - Altos níveis de Inteligência e Destreza iniciais.\n");
@@ -81,5 +50,13 @@ setlocale(LC_ALL, "Portuguese");
 			printf("\nLadrão!\n");
 			break;	
 	}
+
+for(int i = 0; i < 1; i++){
+	printf("Força: %d\n", personagem[0].iforca);
+	printf("Destreza: %d\n", personagem[0].idestreza);
+	printf("Vida: %d\n", personagem[0].ivida);
+	printf("Inteligência: %d\n", personagem[0].iinteligencia);
+}
+
 	return 0;
 }
