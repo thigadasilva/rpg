@@ -73,7 +73,7 @@ setlocale(LC_ALL, "Portuguese");
 			personagem[i].iinteligencia = 0;
 			personagem[i].idestreza = 8;
 			personagem[i].xp = 0;
-			personagem[i].nivel = 0;
+			personagem[i].nivel = 1;
 			break;	
 	}
 
@@ -84,6 +84,7 @@ for(int i = 0; i < 1; i++){
 	printf("|  Agilidade: %d\n", personagem[0].iagilidade);
 	printf("|  Vida: %d\n", personagem[0].ivida);
 	printf("|  Inteligência: %d\n", personagem[0].iinteligencia);
+	printf("|  Nível: %d\n", personagem[0].nivel);
 }
 
 	return 0;
