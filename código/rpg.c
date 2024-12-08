@@ -28,34 +28,57 @@ setlocale(LC_ALL, "Portuguese");
 	// Escolha de Classe
 	inicializarPersonagens(&personagem, 0);
 	printf("\nHora de escolher a sua classe, %s!\n", personagem[0].nome);
-	printf("\nEscolha uma das classes a seguir:\n1 - Guerreiro - Altos níveis de Força e Constituição iniciais.\n");
-	printf("2 - Mago - Altos níveis de Inteligência e Percepção iniciais.\n");
-	printf("3 - Engenheiro - Altos níveis de Inteligência e Destreza iniciais.\n");
-	printf("4 - Ladrão - Altos níveis de Agilidade, Destreza e Carisma iniciais.\n\n");
+	printf("\nEscolha uma das classes a seguir:\n1 - Guerreiro - Altos níveis de Força e vida iniciais.\n");
+	printf("2 - Mago - Altos níveis de Inteligência iniciais.\n");
+	printf("3 - Arqueiro - Altos níveis de Destreza iniciais.\n");
+	printf("4 - Ladrão - Altos níveis de Destreza e força iniciais.\n\n");
 	scanf("%d", &classe);
 	
 	switch(classe){
 		case 1: 
-			for(i = 1; i <= 7; i++){
-				printf("|\n");	
-			};
+			printf("\n  Guerreiro!\n");
+			personagem[i].iforca = 10;
+			personagem[i].ivida = 20;
+			personagem[i].iinteligencia = 0;
+			personagem[i].idestreza = 5;
+			personagem[i].xp = 0;
+			personagem[i].nivel = 1;
 			break;
 		case 2:
-			printf("\nFeiticeiro! \n");
+			printf("\n  Feiticeiro! \n");
+			personagem[i].iforca = 0;
+			personagem[i].ivida = 20;
+			personagem[i].iinteligencia = 10;
+			personagem[i].idestreza = 0;
+			personagem[i].xp = 0;
+			personagem[i].nivel = 1;
 			break;
 		case 3:
-			printf("\nEngenheiro!\n");
+			printf("\n  Arqueiro!\n");
+			personagem[i].iforca = 0;
+			personagem[i].ivida = 20;
+			personagem[i].iinteligencia = 0;
+			personagem[i].idestreza = 10;
+			personagem[i].xp = 0;
+			personagem[i].nivel = 1;
 			break;
 		case 4:
-			printf("\nLadrão!\n");
+			printf("\n  Ladino!\n");
+			personagem[i].iforca = 5;
+			personagem[i].ivida = 20;
+			personagem[i].iinteligencia = 0;
+			personagem[i].idestreza = 10;
+			personagem[i].xp = 0;
+			personagem[i].nivel = 0;
 			break;	
 	}
 
 for(int i = 0; i < 1; i++){
-	printf("Força: %d\n", personagem[0].iforca);
-	printf("Destreza: %d\n", personagem[0].idestreza);
-	printf("Vida: %d\n", personagem[0].ivida);
-	printf("Inteligência: %d\n", personagem[0].iinteligencia);
+	printf("\n-------------------------------ATRIBUTOS INICIAIS-------------------------------\n");
+	printf("|  Força: %d\n", personagem[0].iforca);
+	printf("|  Destreza: %d\n", personagem[0].idestreza);
+	printf("|  Vida: %d\n", personagem[0].ivida);
+	printf("|  Inteligência: %d\n", personagem[0].iinteligencia);
 }
 
 	return 0;
