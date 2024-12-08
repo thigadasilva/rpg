@@ -4,6 +4,7 @@ typedef struct{
 	char nome[16];
 	int iforca;
 	int ivida;
+	int iagilidade;
 	int idestreza;
 	int iinteligencia;
 	int xp;
@@ -16,6 +17,7 @@ void inicializarPersonagens(Atributos *atributos, int itamanho) {
 		Atributos personagem[1];
 		personagem[i].iforca = 0;
 		personagem[i].ivida = 0;
+		personagem[i].iagilidade = 0;
 		personagem[i].iinteligencia = 0;
 		personagem[i].idestreza = 0;
 		personagem[i].xp = 0;
