@@ -38,7 +38,7 @@ setlocale(LC_ALL, "Portuguese");
 		case 1: 
 			printf("\n  Guerreiro!\n");
 			personagem[i].iforca = 10;
-			personagem[i].ivida = 20;
+			personagem[i].ivida = 25;
 			personagem[i].iinteligencia = 0;
 			personagem[i].idestreza = 5;
 			personagem[i].xp = 0;
