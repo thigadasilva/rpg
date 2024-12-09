@@ -1,15 +1,15 @@
 // ARQUIVO DOS MONSTROS
 
 typedef struct{
-	char nome[16];
+	char nome[50];
 	int vida;
 	int forca;
 	
-}monstro;
+}Monstro;
 
 char *nomes[] = {
 
-"Abnegai", //é Jean colega de sala
+"Abnegai", //Ã© Jean colega de sala
 "Trefilarco", // Victor Rafael colega da sala
 "Danai", // Darlan colega da sala
 
@@ -22,7 +22,7 @@ char *nomes[] = {
 "Ignotos", // Gustavo ex aluno
 
 "Aquilatai", // Quecila colega da sala
-"minore", // Márcio ex aluno
+"minore", // MÃ¡rcio ex aluno
 "merego", // Mirelle colega da sala 
 };
 
@@ -31,15 +31,23 @@ const int quantidadeNomes = 12;
 int geradorMonstros(int min, int max){
 	
 	
-}return (rand() % (max - min + 1)) + min;
-
+return (rand() % (max - min + 1)) + min;
+}
 
 Monstro criarMonstrosRandom(){
 	
 	Monstro monstro;
-	strcpy(monstro.nome,nomes[criarMonstrosRandom(0, quantidadesNomes - 1)]);
+ 	 int indice = geradorMonstros(0, quantidadeNomes - 1);
+ 	  strcpy(monstro.nome, nomes[indice]);
 	monstro.vida = geradorMonstros(10, 30);
 	monstro.forca = geradorMonstros(3, 15);
 	
 	return monstro;
+}
+void imprimirMonstro(Monstro *monstro){
+	printf("Um %s te encontrou!\n", monstro->nome);
+    printf("\n---------------------------------STATUS---------------------------------\n");
+    printf("%s\n", monstro->nome);
+    printf("Vida: %d\n", monstro->vida);
+    printf("Força: %d\n", monstro->forca);
 }
