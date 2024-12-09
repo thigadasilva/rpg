@@ -3,12 +3,16 @@
 #include <string.h>
 #include <conio.h>
 #include <stdlib.h>
+#include <time.h>
 #include "personagem.h" // dados do personagem
+#include "monstros.h"
 
 // Atributos:
 
 int main(){
 setlocale(LC_ALL, "Portuguese");
+srand(time(NULL));
+Monstro monstro = criarMonstrosRandom();
 	
 	Atributos personagem[1];
 
@@ -108,6 +112,13 @@ switch(classe){
 			break;	
 }
 printf("  Velhote misterioso: Tanto faz, o importante é: Há monstros dificeis pelo caminho que enfrentará.\n  Quem você procura está no topo desta montanha.\n");
-printf("  Velhote misterioso: Só mais uma coisa: Há seres poderosos aqui, para enfrentá-los, recomendo que visite Medonho, ele tem artigos que serão úteis e costuma acampar próximo destes seres.");
+printf("  Velhote misterioso: Só mais uma coisa: Há seres poderosos aqui, para enfrentá-los, recomendo que visite Medonho, ele tem artigos que serão úteis e costuma acampar próximo destes seres.\n");
+getch();
+printf("\n\n* Você ignora o comentário, e continua o caminho.\n\n");
+
+imprimirMonstro(&monstro);
+
+
+
 	return 0;
 }
