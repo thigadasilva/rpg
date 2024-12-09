@@ -37,6 +37,7 @@ setlocale(LC_ALL, "Portuguese");
 	switch(classe){
 		case 1: 
 			printf("\n  Guerreiro!\n");
+			strcpy(personagem[i].classe, "Guerreiro");
 			personagem[i].iforca = 10;
 			personagem[i].ivida = 25;
 			personagem[i].iagilidade = 0;
@@ -46,7 +47,8 @@ setlocale(LC_ALL, "Portuguese");
 			personagem[i].nivel = 1;
 			break;
 		case 2:
-			printf("\n  Feiticeiro! \n");
+			printf("\n  Mago! \n");
+			strcpy(personagem[i].classe, "Mago");
 			personagem[i].iforca = 0;
 			personagem[i].ivida = 20;
 			personagem[i].iagilidade = 0;
@@ -57,6 +59,7 @@ setlocale(LC_ALL, "Portuguese");
 			break;
 		case 3:
 			printf("\n  Arqueiro!\n");
+			strcpy(personagem[i].classe, "Arqueiro");
 			personagem[i].iforca = 0;
 			personagem[i].ivida = 20;
 			personagem[i].iagilidade = 5;
@@ -67,6 +70,7 @@ setlocale(LC_ALL, "Portuguese");
 			break;
 		case 4:
 			printf("\n  Ladino!\n");
+			strcpy(personagem[i].classe, "Ladino");
 			personagem[i].iforca = 5;
 			personagem[i].ivida = 20;
 			personagem[i].iagilidade = 10;
@@ -77,7 +81,33 @@ setlocale(LC_ALL, "Portuguese");
 			break;	
 	}
 
+system("cls");
+
 imprimirAtributos(&personagem[0]);
 
+
+
+printf("\n\n  De frente para o Dedo de Deus, reflito sobre tudo que aquele traste me fez. Agora, ele sofrerá com as consequências.");
+printf("\n  Márcio se encontra no topo do Dedo de Deus, protegido por seus serviçais.");
+printf("\n  Sem mais demora, ele vai morrer.\n\n");
+getch();
+printf("* Você caminhou até a entrada da montanha, há um elemento presente. Ele aguarda ansioso por você.\n");
+getch();
+switch(classe){
+		case 1: 
+		printf("\n  Velhote misterioso: Vejo que você é bem parrudo não é mesmo? Provavelmente é um Guerreiro...\n");
+			break;
+		case 2:
+		printf("\n  Velhote misterioso: Vejo uma grande reserva de magia em você. Você é um conhecedor das artes das trevas não é mesmo?\n");
+			break;
+		case 3:
+		printf("\n  Velhote misterioso: Seus olhos são bem atentos não é mesmo? Imagino que você seja um atirador.\n");
+			break;
+		case 4:
+		printf("\n  Velhote misterioso: Porque vem na ponta do pé? por acaso tem segundas intenções?\n");
+			break;	
+}
+printf("  Velhote misterioso: Tanto faz, o importante é: Há monstros dificeis pelo caminho que enfrentará.\n  Quem você procura está no topo desta montanha.\n");
+printf("  Velhote misterioso: Só mais uma coisa: Há seres poderosos aqui, para enfrentá-los, recomendo que visite Medonho, ele tem artigos que serão úteis e costuma acampar próximo destes seres.");
 	return 0;
 }
