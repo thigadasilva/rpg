@@ -2,6 +2,7 @@
 
 typedef struct{
 	char nome[16];
+	char classe[16];
 	int iforca;
 	int ivida;
 	int iagilidade;
@@ -11,20 +12,24 @@ typedef struct{
 	int nivel;
 } Atributos;
 
-void inicializarPersonagens(Atributos *atributos, int itamanho) {
-	int i = 0;
-	for(i = 0; i < itamanho; i++){
-		Atributos personagem[1];
-		personagem[i].iforca = 0;
-		personagem[i].ivida = 0;
-		personagem[i].iagilidade = 0;
-		personagem[i].iinteligencia = 0;
-		personagem[i].idestreza = 0;
-		personagem[i].xp = 0;
-		personagem[i].nivel = 0;
-	}
+void inicializarPersonagens(Atributos *atributos) {
+	atributos->iforca = 0;
+	atributos->ivida = 0;
+	atributos->iagilidade = 0;
+	atributos->iinteligencia = 0;
+	atributos->idestreza = 0;
+	atributos->xp = 0;
+	atributos->nivel = 0;
 }
-
-
-
-
+void imprimirAtributos(Atributos *personagem){
+	for(int i = 0; i < 1; i++){
+	printf("\n-------------------------------ATRIBUTOS INICIAIS-------------------------------\n");
+	printf("|  Classe: %s\n", personagem[0].classe);
+	printf("|  Força: %d\n", personagem[0].iforca);
+	printf("|  Destreza: %d\n", personagem[0].idestreza);
+	printf("|  Agilidade: %d\n", personagem[0].iagilidade);
+	printf("|  Vida: %d\n", personagem[0].ivida);
+	printf("|  Inteligência: %d\n", personagem[0].iinteligencia);
+	printf("|  Nível: %d\n", personagem[0].nivel);
+}
+}

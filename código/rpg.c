@@ -3,40 +3,45 @@
 #include <string.h>
 #include <conio.h>
 #include <stdlib.h>
+#include <time.h>
 #include "personagem.h" // dados do personagem
+#include "monstros.h"
 
 // Atributos:
 
 int main(){
 setlocale(LC_ALL, "Portuguese");
+srand(time(NULL));
+Monstro monstro = criarMonstrosRandom();
 	
 	Atributos personagem[1];
 
-	int classe, i;
+	int classe, i = 0;
 	int letras = 0;
 	
-	printf("Bem vindo a sua pr�xima aventura! Vamos criar o seu personagem!\n");
-	// Verifica��o se o nome tem mais de 15 letras
+	printf("Bem vindo a sua próxima aventura! Vamos criar o seu personagem!\n");
+	// Verificação se o nome tem mais de 15 letras
 	do{
 	printf("Insira seu nome:\n");
 	gets(personagem[0].nome);
 	letras = strlen(personagem[0].nome);
 		if(letras > 15){
-			printf("\nN�o � poss�vel inserir um nome com mais de 15 letras.\n");	
+			printf("\nNão é possível inserir um nome com mais de 15 letras.\n");	
 		}
 	} while(letras > 15);
 	// Escolha de Classe
-	inicializarPersonagens(&personagem, 0);
+	inicializarPersonagens(&personagem[0]);
 	printf("\nHora de escolher a sua classe, %s!\n", personagem[0].nome);
-	printf("\nEscolha uma das classes a seguir:\n1 - Guerreiro - Altos n�veis de For�a e vida iniciais.\n");
-	printf("2 - Mago - Altos n�veis de Intelig�ncia iniciais.\n");
-	printf("3 - Arqueiro - Altos n�veis de Destreza iniciais.\n");
-	printf("4 - Ladr�o - Altos n�veis de Destreza e for�a iniciais.\n\n");
+	printf("\nEscolha uma das classes a seguir:\n1 - Guerreiro - Altos níveis de Força e vida iniciais.\n");
+	printf("2 - Mago - Altos níveis de Inteligência iniciais.\n");
+	printf("3 - Arqueiro - Altos níveis de Destreza iniciais.\n");
+	printf("4 - Ladrão - Altos níveis de Destreza e força iniciais.\n\n");
 	scanf("%d", &classe);
 	
 	switch(classe){
 		case 1: 
 			printf("\n  Guerreiro!\n");
+			strcpy(personagem[i].classe, "Guerreiro");
 			personagem[i].iforca = 10;
 			personagem[i].ivida = 25;
 			personagem[i].iagilidade = 0;
@@ -46,7 +51,8 @@ setlocale(LC_ALL, "Portuguese");
 			personagem[i].nivel = 1;
 			break;
 		case 2:
-			printf("\n  Feiticeiro! \n");
+			printf("\n  Mago! \n");
+			strcpy(personagem[i].classe, "Mago");
 			personagem[i].iforca = 0;
 			personagem[i].ivida = 20;
 			personagem[i].iagilidade = 0;
@@ -57,6 +63,7 @@ setlocale(LC_ALL, "Portuguese");
 			break;
 		case 3:
 			printf("\n  Arqueiro!\n");
+			strcpy(personagem[i].classe, "Arqueiro");
 			personagem[i].iforca = 0;
 			personagem[i].ivida = 20;
 			personagem[i].iagilidade = 5;
@@ -67,6 +74,7 @@ setlocale(LC_ALL, "Portuguese");
 			break;
 		case 4:
 			printf("\n  Ladino!\n");
+			strcpy(personagem[i].classe, "Ladino");
 			personagem[i].iforca = 5;
 			personagem[i].ivida = 20;
 			personagem[i].iagilidade = 10;
@@ -77,15 +85,40 @@ setlocale(LC_ALL, "Portuguese");
 			break;	
 	}
 
-for(int i = 0; i < 1; i++){
-	printf("\n-------------------------------ATRIBUTOS INICIAIS-------------------------------\n");
-	printf("|  For�a: %d\n", personagem[0].iforca);
-	printf("|  Destreza: %d\n", personagem[0].idestreza);
-	printf("|  Agilidade: %d\n", personagem[0].iagilidade);
-	printf("|  Vida: %d\n", personagem[0].ivida);
-	printf("|  Intelig�ncia: %d\n", personagem[0].iinteligencia);
-	printf("|  N�vel: %d\n", personagem[0].nivel);
+system("cls");
+
+imprimirAtributos(&personagem[0]);
+
+
+
+printf("\n\n  De frente para o Dedo de Deus, reflito sobre tudo que aquele traste me fez. Agora, ele sofrerá com as consequências.");
+printf("\n  Márcio se encontra no topo do Dedo de Deus, protegido por seus serviçais.");
+printf("\n  Sem mais demora, ele vai morrer.\n\n");
+getch();
+printf("* Você caminhou até a entrada da montanha, há um elemento presente. Ele aguarda ansioso por você.\n");
+getch();
+switch(classe){
+		case 1: 
+		printf("\n  Velhote misterioso: Vejo que você é bem parrudo não é mesmo? Provavelmente é um Guerreiro...\n");
+			break;
+		case 2:
+		printf("\n  Velhote misterioso: Vejo uma grande reserva de magia em você. Você é um conhecedor das artes das trevas não é mesmo?\n");
+			break;
+		case 3:
+		printf("\n  Velhote misterioso: Seus olhos são bem atentos não é mesmo? Imagino que você seja um atirador.\n");
+			break;
+		case 4:
+		printf("\n  Velhote misterioso: Porque vem na ponta do pé? por acaso tem segundas intenções?\n");
+			break;	
 }
+printf("  Velhote misterioso: Tanto faz, o importante é: Há monstros dificeis pelo caminho que enfrentará.\n  Quem você procura está no topo desta montanha.\n");
+printf("  Velhote misterioso: Só mais uma coisa: Há seres poderosos aqui, para enfrentá-los, recomendo que visite Medonho, ele tem artigos que serão úteis e costuma acampar próximo destes seres.\n");
+getch();
+printf("\n\n* Você ignora o comentário, e continua o caminho.\n\n");
+
+imprimirMonstro(&monstro);
+
+
 
 	return 0;
 }
