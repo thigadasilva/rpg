@@ -4,12 +4,13 @@ typedef struct{
 	char nome[50];
 	int vida;
 	int forca;
+	int ataque;
 	
 }Monstro;
 
 char *nomes[] = {
 
-"Abnegai", //é Jean colega de sala
+"Abnegai", //Ã© Jean colega de sala
 "Trefilarco", // Victor Rafael colega da sala
 "Danai", // Darlan colega da sala
 
@@ -22,7 +23,7 @@ char *nomes[] = {
 "Ignotos", // Gustavo ex aluno
 
 "Aquilatai", // Quecila colega da sala
-"minore", // Márcio ex aluno
+"minore", // MÃ¡rcio ex aluno
 "merego", // Mirelle colega da sala 
 };
 
@@ -41,6 +42,7 @@ Monstro criarMonstrosRandom(){
  	  strcpy(monstro.nome, nomes[indice]);
 	monstro.vida = geradorMonstros(10, 30);
 	monstro.forca = geradorMonstros(3, 15);
+	monstro.ataque = geradorMonstros(1, 10);
 	
 	return monstro;
 }
@@ -49,5 +51,6 @@ void imprimirMonstro(Monstro *monstro){
     printf("\n---------------------------------STATUS---------------------------------\n");
     printf("%s\n", monstro->nome);
     printf("Vida: %d\n", monstro->vida);
-    printf("For�a: %d\n\n", monstro->forca);
+    printf("Força: %d\n\n", monstro->forca);
+    getch();
 }
