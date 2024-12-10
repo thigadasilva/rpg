@@ -22,23 +22,23 @@ Monstro monstro = criarMonstrosRandom();
 	int classe;
 	int letras = 0, i = 0;;
 	
-	printf("Bem vindo a sua próxima aventura! Vamos criar o seu personagem!\n");
-	// Verificação se o nome tem mais de 15 letras
+	printf("Bem vindo a sua prÃ³xima aventura! Vamos criar o seu personagem!\n");
+	// VerificaÃ§Ã£o se o nome tem mais de 15 letras
 	do{
 	printf("Insira seu nome:\n");
 	gets(personagem[0].nome);
 	letras = strlen(personagem[0].nome);
 		if(letras > 15){
-			printf("\nNão é possível inserir um nome com mais de 15 letras.\n");	
+			printf("\nNÃ£o Ã© possÃ­vel inserir um nome com mais de 15 letras.\n");	
 		}
 	} while(letras > 15);
 	// Escolha de Classe
 	inicializarPersonagens(&personagem[0]);
 	printf("\nHora de escolher a sua classe, %s!\n", personagem[0].nome);
-	printf("\nEscolha uma das classes a seguir:\n1 - Guerreiro - Altos níveis de Força e vida iniciais.\n");
-	printf("2 - Mago - Altos níveis de Inteligência iniciais.\n");
-	printf("3 - Arqueiro - Altos níveis de Destreza iniciais.\n");
-	printf("4 - Ladrão - Altos níveis de Destreza e força iniciais.\n\n");
+	printf("\nEscolha uma das classes a seguir:\n1 - Guerreiro - Altos nÃ­veis de ForÃ§a e vida iniciais.\n");
+	printf("2 - Mago - Altos nÃ­veis de InteligÃªncia iniciais.\n");
+	printf("3 - Arqueiro - Altos nÃ­veis de Destreza iniciais.\n");
+	printf("4 - LadrÃ£o - Altos nÃ­veis de Destreza e forÃ§a iniciais.\n\n");
 	scanf("%d", &classe);
 	
 	switch(classe){
@@ -94,34 +94,34 @@ imprimirAtributos(&personagem[0]);
 
 
 
-printf("\n\n  De frente para o Dedo de Deus, reflito sobre tudo que aquele traste me fez. Agora, ele sofrerá com as consequências.");
-printf("\n  Márcio se encontra no topo do Dedo de Deus, protegido por seus serviçais.");
+printf("\n\n  De frente para o Dedo de Deus, reflito sobre tudo que aquele traste me fez. Agora, ele sofrerÃ¡ com as consequÃªncias.");
+printf("\n  MÃ¡rcio se encontra no topo do Dedo de Deus, protegido por seus serviÃ§ais.");
 printf("\n  Sem mais demora, ele vai morrer.\n\n");
 getch();
-printf("* Você caminhou até a entrada da montanha, há um elemento presente. Ele aguarda ansioso por você.\n");
+printf("* VocÃª caminhou atÃ© a entrada da montanha, hÃ¡ um elemento presente. Ele aguarda ansioso por vocÃª.\n");
 getch();
 switch(classe){
 		case 1: 
-		printf("\n  Senhor misterioso: Vejo que você é bem parrudo não é mesmo? Provavelmente é um Guerreiro...\n");
+		printf("\n  Senhor misterioso: Vejo que vocÃª Ã© bem parrudo nÃ£o Ã© mesmo? Provavelmente Ã© um Guerreiro...\n");
 			break;
 		case 2:
-		printf("\n  Senhor misterioso: Vejo uma grande reserva de magia em você. Você é um conhecedor das artes das trevas não é mesmo?\n");
+		printf("\n  Senhor misterioso: Vejo uma grande reserva de magia em vocÃª. VocÃª Ã© um conhecedor das artes das trevas nÃ£o Ã© mesmo?\n");
 			break;
 		case 3:
-		printf("\n  Senhor misterioso: Seus olhos são bem atentos não é mesmo? Imagino que você seja um atirador.\n");
+		printf("\n  Senhor misterioso: Seus olhos sÃ£o bem atentos nÃ£o Ã© mesmo? Imagino que vocÃª seja um atirador.\n");
 			break;
 		case 4:
-		printf("\n  Senhor misterioso: Porque vem na ponta do pé? por acaso tem segundas intenções?\n");
+		printf("\n  Senhor misterioso: Porque vem na ponta do pÃ©? por acaso tem segundas intenÃ§Ãµes?\n");
 			break;	
 }
-printf("  Senhor misterioso: Tanto faz, o importante é: Há monstros dificeis pelo caminho que enfrentará.\n  Quem você procura está no topo desta montanha.\n");
-printf("  Senhor misterioso: Só mais uma coisa: Há seres poderosos aqui, para enfrentá-los, recomendo que visite Medonho. \n  Ele tem artigos que serão úteis e costuma acampar próximo destes seres.\n");
+printf("  Senhor misterioso: Tanto faz, o importante Ã©: HÃ¡ monstros dificeis pelo caminho que enfrentarÃ¡.\n  Quem vocÃª procura estÃ¡ no topo desta montanha.\n");
+printf("  Senhor misterioso: SÃ³ mais uma coisa: HÃ¡ seres poderosos aqui, para enfrentÃ¡-los, recomendo que visite Medonho. \n  Ele tem artigos que serÃ£o Ãºteis e costuma acampar prÃ³ximo destes seres.\n");
 getch();
-printf("\n\n* Você ignora o comentário, e continua o caminho.\n\n");
+printf("\n\n* VocÃª ignora o comentÃ¡rio, e continua o caminho.\n\n");
 
 imprimirMonstro(&monstro);
 
-iniciarbatalha(classe, personagem[0]);
+iniciarbatalha(classe, personagem[0], monstro);
 
 	return 0;
 }
