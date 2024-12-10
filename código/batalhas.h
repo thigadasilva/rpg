@@ -1,6 +1,6 @@
 // ATAQUE
 void atacar(int classe, Atributos personagem, Monstro *monstro){
-	int danoBase = personagem.iforca * 2;
+	int danoBase = personagem.iforca + personagem.iagilidade + personagem.idestreza + personagem.iinteligencia;
 	int danoAleatorio = rand() % 5 + 1;
 	int danoTotal = danoBase + danoAleatorio;
 	int danoCritico = 0;
@@ -18,69 +18,73 @@ void atacar(int classe, Atributos personagem, Monstro *monstro){
 	switch (classe){
 		case 1:
 			if(escolha2 == 1){
-				printf("Voc√™ atacou fisicamente!\n");
+				printf("VocÍ atacou fisicamente!\n");
 				if(danoCritico > 0){
-				printf("Voc√™ causou %d de Dano Cr√≠tico!\n", danoCritico);
+				printf("VocÍ causou %d de Dano CrÌtico!\n", danoCritico);
 				monstro->vida -= danoCritico;
-				printf("Voc√™ atacou o monstro por %d de dano!\n", danoCritico);
-				printf("O monstro est√° com %d restantes.\n", monstro->vida);
+				monstro->vida -= danoTotal;
+				printf("VocÍ atacou o monstro por %d de dano!\n", danoTotal);
+				printf("O monstro est· com %d de hp restantes.\n", monstro->vida);
 	} else{
 		monstro->vida -= danoTotal;
-		printf("Voc√™ atacou o monstro por %d de dano!", danoTotal);
+		printf("VocÍ atacou o monstro por %d de dano!", danoTotal);
 	}
 			}else if(escolha2 == 2){
-				printf("Voc√™ usou uma habilidade!\n");
+				printf("VocÍ usou uma habilidade!\n");
 			}
 		break;
 			case 2:
 			if (escolha2 == 1){
-				printf("\nVoc√™ lan√ßou magias no inimigo!\n");
+				printf("\nVocÍ lanÁou magias no inimigo!\n");
 				if(danoCritico > 0){
-				printf("Voc√™ causou %d de Dano Cr√≠tico!\n", danoCritico);
+				printf("VocÍ causou %d de Dano CrÌtico!\n", danoCritico);
 				monstro->vida -= danoCritico;
-				printf("Voc√™ atacou o monstro por %d de dano!\n", danoCritico);
-				printf("O monstro est√° com %d restantes.\n", monstro->vida);
+				monstro->vida -= danoTotal;
+				printf("VocÍ atacou o monstro por %d de dano!\n", danoCritico);
+				printf("O monstro est· com %d de hp restantes.\n", monstro->vida);
 	} else{
 				monstro->vida -= danoTotal;
-				printf("Voc√™ atacou o monstro por %d de dano!\n", danoTotal);
-			printf("O monstro est√° com %d restantes.\n", monstro->vida);
+				printf("VocÍ atacou o monstro por %d de dano!\n", danoTotal);
+			printf("O monstro est· com %d de hp restantes.\n", monstro->vida);
 			} 
 			}else if(escolha2 == 2){
-				printf("Voc√™ usou uma habilidade!\n");
+				printf("VocÍ usou uma habilidade!\n");
 			}
 		break;
 			case 3:
 			if (escolha2 == 1){
-				printf("\nVoc√™ atirou proj√©teis no inimigo!\n");
+				printf("\nVocÍ atirou projÈteis no inimigo!\n");
 							if(danoCritico > 0){
-				printf("Voc√™ causou %d de Dano Cr√≠tico!\n", danoCritico);
+				printf("VocÍ causou %d de Dano CrÌtico!\n", danoCritico);
 				monstro->vida -= danoCritico;
-				printf("Voc√™ atacou o monstro por %d de dano!\n", danoCritico);
-				printf("O monstro est√° com %d restantes.\n", monstro->vida);
+				monstro->vida -= danoTotal;
+				printf("VocÍ atacou o monstro por %d de dano!\n", danoCritico);
+				printf("O monstro est· com %d de hp restantes.\n", monstro->vida);
 	} else{
 				monstro->vida -= danoTotal;
-				printf("Voc√™ atacou o monstro por %d de dano!\n", danoTotal);
-				printf("O monstro est√° com %d restantes.\n", monstro->vida);
+				printf("VocÍ atacou o monstro por %d de dano!\n", danoTotal);
+				printf("O monstro est· com %d de hp restantes.\n", monstro->vida);
 			} 
 			}else if(escolha2 == 2){
-				printf("Voc√™ usou uma habilidade!\n");
+				printf("VocÍ usou uma habilidade!\n");
 			}
 		break;
 			case 4:
 			if (escolha2 == 1){
-				printf("\nVoc√™ apunhalou o inimigo!\n");
+				printf("\nVocÍ apunhalou o inimigo!\n");
 							if(danoCritico > 0){
-				printf("Voc√™ causou %d de Dano Cr√≠tico!\n", danoCritico);
+				printf("VocÍ causou %d de Dano CrÌtico!\n", danoCritico);
 				monstro->vida -= danoCritico;
-				printf("Voc√™ atacou o monstro por %d de dano!\n", danoCritico);
-				printf("O monstro est√° com %d restantes.\n", monstro->vida);
+				monstro->vida -= danoTotal;
+				printf("VocÍ atacou o monstro por %d de dano!\n", danoCritico);
+				printf("O monstro est· com %d de hp restantes.\n", monstro->vida);
 	} else{
 				monstro->vida -= danoTotal;
-				printf("Voc√™ atacou o monstro por %d de dano!\n", danoTotal);
-				printf("O monstro est√° com %d restantes.\n", monstro->vida);
+				printf("VocÍ atacou o monstro por %d de dano!\n", danoTotal);
+				printf("O monstro est· com %d de hp restantes.\n", monstro->vida);
 			} 
 			}else if(escolha2 == 2){
-				printf("Voc√™ usou uma habilidade!\n");
+				printf("VocÍ usou uma habilidade!\n");
 			}
 		break;
 	}
@@ -94,17 +98,17 @@ int calcularChanceFuga(Atributos personagem) {
 void tentarFuga(int chanceFuga){
 	int roll = rand() % 20 + 1;
 	if (roll <= chanceFuga){
-		printf("Voc√™ fugiu com sucesso!\n");
+		printf("VocÍ fugiu com sucesso!\n");
 	} else{
-		printf("Voc√™ n√£o conseguiu fugir!\n");
+		printf("VocÍ n„o conseguiu fugir!\n");
 	}
 }
 
 void monstroAtaca(Monstro *monstro, Atributos *personagem){
 	int dano = monstro->ataque;
 	personagem->ivida -= dano;
-	printf("O monstro atacou voc√™ e causou %d de dano!\n\n", dano);
-	printf("Voc√™ agora est√° com %d\n", personagem->ivida);
+	printf("O monstro atacou vocÍ e causou %d de dano!\n\n", dano);
+	printf("VocÍ agora est· com %d de hp.\n", personagem->ivida);
 }
 
 void iniciarbatalha(int classe, Atributos personagem, Monstro monstro){
@@ -119,20 +123,20 @@ void iniciarbatalha(int classe, Atributos personagem, Monstro monstro){
 	 	
 	 	if(turno == 0){
 	int escolha;
-   		printf(" 1. Atacar\n 2. Invent√°rio\n 3. Fugir\n\n");
+   		printf(" 1. Atacar\n 2. Invent·rio\n 3. Fugir\n\n");
     		scanf("%d", &escolha);
 	switch(escolha){
 		case 1:
 			atacar(classe, personagem, &monstro);
 			break;
 		case 2:
-			printf("  OP√á√ÉO N√ÉO IMPLEMENTADA AINDA\n");
+			printf("  OP«√O N√O IMPLEMENTADA AINDA\n");
 			break;
 		case 3:
 			tentarFuga(chanceFuga);
 			break;
 		default:
-			printf("Op√ß√£o inv√°lida!");	
+			printf("OpÁ„o inv·lida!");	
 		} 
 		} else{
 			printf("\nTurno do monstro!\n");
@@ -142,11 +146,13 @@ void iniciarbatalha(int classe, Atributos personagem, Monstro monstro){
 	turno = !turno; // altera turno
 	
 	if(personagem.ivida <= 0){
-		printf("Voc√™ morreu!\n");
+		printf("\nVOC  MORREU!!\n");
 	} else if (monstro.vida <= 0){
-		printf("Voc√™ venceu!\n\n");
+		printf("\nVocÍ venceu!\n\n");
 		personagem.xp += rand() % 20 + 50;
 		printf("XP: %d", personagem.xp);
+		personagem.moeda += rand() % 20 + 100;
+		printf("\nVocÍ recebeu %d moedas de ouro.\n", personagem.moeda);
 	}
 }
 }

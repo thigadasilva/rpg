@@ -10,7 +10,7 @@ typedef struct{
 
 char *nomes[] = {
 
-"Abnegai", //Ã© Jean colega de sala
+"Abnegai", //é Jean colega de sala
 "Trefilarco", // Victor Rafael colega da sala
 "Danai", // Darlan colega da sala
 
@@ -23,7 +23,7 @@ char *nomes[] = {
 "Ignotos", // Gustavo ex aluno
 
 "Aquilatai", // Quecila colega da sala
-"minore", // MÃ¡rcio ex aluno
+"minore", // Márcio ex aluno
 "merego", // Mirelle colega da sala 
 };
 
@@ -51,6 +51,6 @@ void imprimirMonstro(Monstro *monstro){
     printf("\n---------------------------------STATUS---------------------------------\n");
     printf("%s\n", monstro->nome);
     printf("Vida: %d\n", monstro->vida);
-    printf("Força: %d\n\n", monstro->forca);
+    printf("For�a: %d\n\n", monstro->forca);
     getch();
 }
