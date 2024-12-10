@@ -40,7 +40,7 @@ Monstro criarMonstrosRandom(){
 	Monstro monstro;
  	 int indice = geradorMonstros(0, quantidadeNomes - 1);
  	  strcpy(monstro.nome, nomes[indice]);
-	monstro.vida = geradorMonstros(10, 30);
+	monstro.vida = geradorMonstros(30, 50);
 	monstro.forca = geradorMonstros(3, 15);
 	monstro.ataque = geradorMonstros(1, 10);
 	
