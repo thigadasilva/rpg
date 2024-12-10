@@ -121,6 +121,7 @@ printf("\n\n* Você ignora o comentário, e continua o caminho.\n\n");
 
 imprimirMonstro(&monstro);
 
+printf("XP: %d\n", personagem->xp);
 iniciarbatalha(classe, personagem[0], monstro);
 
 	return 0;
