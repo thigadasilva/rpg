@@ -49,5 +49,5 @@ void imprimirMonstro(Monstro *monstro){
     printf("\n---------------------------------STATUS---------------------------------\n");
     printf("%s\n", monstro->nome);
     printf("Vida: %d\n", monstro->vida);
-    printf("Força: %d\n", monstro->forca);
+    printf("Força: %d\n\n", monstro->forca);
 }
