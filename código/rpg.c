@@ -86,6 +86,9 @@ Monstro monstro = criarMonstrosRandom();
 			personagem[i].xp = 0;
 			personagem[i].nivel = 1;
 			break;	
+		default:
+			printf("Opção inválida!");
+			break;
 	}
 
 system("cls");
@@ -121,7 +124,7 @@ printf("\n\n* Você ignora o comentário, e continua o caminho.\n\n");
 
 imprimirMonstro(&monstro);
 
-printf("XP: %d\n", personagem->xp);
+
 iniciarbatalha(classe, personagem[0], monstro);
 
 	return 0;
