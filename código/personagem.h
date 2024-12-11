@@ -40,5 +40,6 @@ void imprimirAtributos(Atributos *personagem){
 	printf("|  Dinheiro: %d\n", personagem[0].moeda);
 	printf("|  Poções de Vida: %d\n", personagem[0].potionsHp);
 	printf("|  Poções de Energia: %d\n", personagem[0].potionsEnergia);
+	printf("--------------------------------------------------------------------------------\n");
 }
 }
