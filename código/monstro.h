@@ -1,7 +1,7 @@
 // ARQUIVO DOS MONSTROS
 
 typedef struct{
-	char nome[100];
+	char nome[50];
 	int vida;
 	int forca;
 	int ataque;
@@ -23,29 +23,11 @@ char *nomes[] = {
 "Ignotos", // Gustavo ex aluno
 
 "Aquilatai", // Quecila colega da sala
-"Minore", // MÃ¡rcio ex aluno
-"Merego", // Mirelle colega da sala 
-};
-
-char *criaturas[] ={
-
-"o Goblin",
-"o Troll",
-"o Dragão",
-"o Orc",
-"o Elfo Negro",
-"o Anão",
-"o Lich",
-"o Vampiro",
-"o Lobisomem",
-"o Demônio",
-"o Gigante",
-"o Minotauro",
-"o Cíclope",
+"minore", // MÃ¡rcio ex aluno
+"merego", // Mirelle colega da sala 
 };
 
 const int quantidadeNomes = 12;
-const int quantidadeCriaturas = 12;
 
 int geradorMonstros(int min, int max){
 	
@@ -57,16 +39,15 @@ Monstro criarMonstrosRandom(){
 	
 	Monstro monstro;
  	 int indice = geradorMonstros(0, quantidadeNomes - 1);
- 	 int indiceCriatura = geradorMonstros(0, quantidadeCriaturas - 1);
- 	  sprintf(monstro.nome, "%s, %s", nomes[indice], criaturas[indiceCriatura]);
-	monstro.vida = geradorMonstros(30, 50);
+ 	  strcpy(monstro.nome, nomes[indice]);
+	monstro.vida = geradorMonstros(50, 70);
 	monstro.forca = geradorMonstros(3, 15);
 	monstro.ataque = geradorMonstros(1, 10);
 	
 	return monstro;
 }
 void imprimirMonstro(Monstro *monstro){
-	printf("Um %s te encontrou!\n", monstro->nome);
+	printf("\nUm %s te encontrou!\n", monstro->nome);
     printf("\n---------------------------------STATUS---------------------------------\n");
     printf("%s\n", monstro->nome);
     printf("Vida: %d\n", monstro->vida);
