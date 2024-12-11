@@ -76,10 +76,16 @@ void check(Atributos *personagem){
 }
 
 void atacar(int classe, Atributos *personagem, Monstro *monstro){
+	int custoEnergia = 10;
 	int danoBase = personagem->iforca + personagem->iagilidade + personagem->idestreza + personagem->iinteligencia;
 	int danoAleatorio = rand() % 5 + 1;
 	int danoTotal = danoBase + danoAleatorio;
 	int danoCritico = 0;
+	
+	 if (personagem->ienergia < custoEnergia) {
+        printf("Você não tem energia suficiente para atacar!\n");
+        return;
+    }
 	
 	if(rand() % 100 + 1 <= personagem->iagilidade * 2){
 		danoCritico = danoTotal * 2;
@@ -95,17 +101,21 @@ void atacar(int classe, Atributos *personagem, Monstro *monstro){
 		case 1:
 			if(escolha2 == 1){
 				printf("Você atacou fisicamente!\n");
+				personagem->ienergia -= custoEnergia;
 				if(danoCritico > 0){
-				printf("Você causou %d de Dano Crítico!\n", danoCritico);
+				printf("Você causou %d de Dano Crítico!\n\n", danoCritico);
 				monstro->vida -= danoCritico;
 				monstro->vida -= danoTotal;
 			
 				printf("O monstro está com %d de hp restantes.\n", monstro->vida);
+					printf("Energia atual: %d", personagem->ienergia);
 				turno += 1;;
 				break;
 	} else{
 		monstro->vida -= danoTotal;
-		printf("Você atacou o monstro por %d de dano!", danoTotal);
+		printf("Você atacou o monstro por %d de dano!\n", danoTotal);
+			printf("O monstro está com %d de hp restantes.\n", monstro->vida);
+			printf("Energia atual: %d", personagem->ienergia);
 			turno += 1;
 			break;
 	}
@@ -120,17 +130,20 @@ void atacar(int classe, Atributos *personagem, Monstro *monstro){
 			case 2:
 			if (escolha2 == 1){
 				printf("\nVocê lançou magias no inimigo!\n");
+				personagem->ienergia -= custoEnergia;
 				if(danoCritico > 0){
-				printf("Você causou %d de Dano Crítico!\n", danoCritico);
+				printf("Você causou %d de Dano Crítico!\n\n", danoCritico);
 				monstro->vida -= danoCritico;
 				monstro->vida -= danoTotal;
 				printf("O monstro está com %d de hp restantes.\n", monstro->vida);
+				printf("Sua Energia atual: %d", personagem->ienergia);
 			turno += 1;
 				break;
 	} else{
 				monstro->vida -= danoTotal;
 				printf("Você atacou o monstro por %d de dano!\n", danoTotal);
-			printf("O monstro está com %d de hp restantes.\n", monstro->vida);
+			printf("O monstro está com %d de hp restantes.\n\n", monstro->vida);
+				printf("Sua Energia atual: %d", personagem->ienergia);
 		turno += 1;
 			break;
 			} 
@@ -145,18 +158,21 @@ void atacar(int classe, Atributos *personagem, Monstro *monstro){
 			case 3:
 			if (escolha2 == 1){
 				printf("\nVocê atirou projéteis no inimigo!\n");
+				personagem->ienergia -= custoEnergia;
 							if(danoCritico > 0){
-				printf("Você causou %d de Dano Crítico!\n", danoCritico);
+				printf("Você causou %d de Dano Crítico!\n\n", danoCritico);
 				monstro->vida -= danoCritico;
 				monstro->vida -= danoTotal;
 		
 				printf("O monstro está com %d de hp restantes.\n", monstro->vida);
+					printf("Sua Energia atual: %d", personagem->ienergia);
 				turno += 1;
 					break;
 	} else{
 				monstro->vida -= danoTotal;
 				printf("Você atacou o monstro por %d de dano!\n", danoTotal);
-				printf("O monstro está com %d de hp restantes.\n", monstro->vida);
+				printf("O monstro está com %d de hp restantes.\n\n", monstro->vida);
+					printf("Sua Energia atual: %d", personagem->ienergia);
 				turno += 1;
 					break;
 			} 
@@ -171,18 +187,21 @@ void atacar(int classe, Atributos *personagem, Monstro *monstro){
 			case 4:
 			if (escolha2 == 1){
 				printf("\nVocê apunhalou o inimigo!\n");
+				personagem->ienergia -= custoEnergia;
 							if(danoCritico > 0){
-				printf("Você causou %d de Dano Crítico!\n", danoCritico);
+				printf("Você causou %d de Dano Crítico!\n\n", danoCritico);
 				monstro->vida -= danoCritico;
 				monstro->vida -= danoTotal;
 				
 				printf("O monstro está com %d de hp restantes.\n", monstro->vida);
+					printf("Sua Energia atual: %d", personagem->ienergia);
 				turno += 1;
 					break;
 	} else{
 				monstro->vida -= danoTotal;
 				printf("Você atacou o monstro por %d de dano!\n", danoTotal);
-				printf("O monstro está com %d de hp restantes.\n", monstro->vida);
+				printf("O monstro está com %d de hp restantes.\n\n", monstro->vida);
+					printf("Sua Energia atual: %d", personagem->ienergia);
 				turno += 1;
 					break;
 			} 

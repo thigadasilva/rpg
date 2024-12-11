@@ -161,12 +161,14 @@ getch();
 system("cls");
 imprimirAtributos(&personagem[0]);
 
-printf("\n\n*  Você consegue sentir uma presença mais a frente, ele parece estar te aguardando. ");
+printf("\n\n*  Você consegue sentir uma presença mais a frente\n Ela parece estar te aguardando. ");
 printf("\n\n Aproxime-se Humano, tenho artefatos que irão te interessar.");
 printf("Esqueci meu nome há tempos, mas me chamam de Medonho, por algum motivo.");
 getch();
-printf("Tenho poções e itens que podem te fortalecer para a luta que encontrará mais em frente.");
-printf("Porém sugiro que compre somente os itens que irão te beneficiar.");
+printf("Tenho poções e itens que podem te fortalecer\n para a luta que encontrará mais em frente.");
+printf("Porém sugiro que compre somente os itens que irão te beneficiar.\n Caso contrário, tenho certeza que sofrerá.");
+
+
 
 
 return 0;

@@ -78,4 +78,10 @@ void atualizarAtributos(int classe,Atributos *personagem) {
     personagem->ienergia += rand() % 20 + 5; 
 	}
 }
+void atualizarEnergia(Atributos *personagem, int custoEnergia) {
+    personagem->ienergia -= custoEnergia;
+    if (personagem->ienergia < 0) {
+        personagem->ienergia = 0;
+    }
+}
 
