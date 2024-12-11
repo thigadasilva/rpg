@@ -85,3 +85,4 @@ void atualizarEnergia(Atributos *personagem, int custoEnergia) {
     }
 }
 
+

@@ -120,8 +120,10 @@ void atacar(int classe, Atributos *personagem, Monstro *monstro){
 			break;
 	}
 			}else if(escolha2 == 2){
-				printf("Você usou uma habilidade!\n");
-				turno += 1;
+		
+				
+				
+				
 					break;
 			} else if(escolha2 == 3){
 				break;

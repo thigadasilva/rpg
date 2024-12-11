@@ -170,6 +170,5 @@ printf("Porém sugiro que compre somente os itens que irão te beneficiar.\n Caso 
 
 
 
-
 return 0;
 }
