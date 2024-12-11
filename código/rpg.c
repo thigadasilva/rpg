@@ -11,7 +11,6 @@
 
 
 
-// Atributos:
 
 int main(){
 setlocale(LC_ALL, "Portuguese");
@@ -19,7 +18,6 @@ srand(time(NULL));
 Monstro monstro = criarMonstrosRandom();
 	
 	Atributos personagem[1];
-
 	int classe;
 	int letras = 0, i = 0;;
 	do{
@@ -46,6 +44,7 @@ Monstro monstro = criarMonstrosRandom();
 			strcpy(personagem[i].classe, "Guerreiro");
 			personagem[i].iforca = 12;
 			personagem[i].ivida = 28;
+			personagem[i].ienergia = 100;
 			personagem[i].iagilidade = 2;
 			personagem[i].iinteligencia = 4;
 			personagem[i].idestreza = 6;
@@ -57,6 +56,7 @@ Monstro monstro = criarMonstrosRandom();
 			strcpy(personagem[i].classe, "Mago");
 			personagem[i].iforca = 4;
 			personagem[i].ivida = 18;
+			personagem[i].ienergia = 100;
 			personagem[i].iagilidade = 4;
 			personagem[i].iinteligencia = 16;
 			personagem[i].idestreza = 4;
@@ -68,6 +68,7 @@ Monstro monstro = criarMonstrosRandom();
 			strcpy(personagem[i].classe, "Arqueiro");
 			personagem[i].iforca = 8;
 			personagem[i].ivida = 22;
+			personagem[i].ienergia = 100;
 			personagem[i].iagilidade = 10;
 			personagem[i].iinteligencia = 6;
 			personagem[i].idestreza = 14;
@@ -79,6 +80,7 @@ Monstro monstro = criarMonstrosRandom();
 			strcpy(personagem[i].classe, "Ladino");
 			personagem[i].iforca = 10;
 			personagem[i].ivida = 20;
+			personagem[i].ienergia = 100;
 			personagem[i].iagilidade = 12;
 			personagem[i].iinteligencia = 8;
 			personagem[i].idestreza = 10;
@@ -132,10 +134,10 @@ system("cls");
 imprimirAtributos(&personagem[0]);
 imprimirMonstro(&monstro);
 
-
 iniciarbatalha(classe, &personagem[0], &monstro);
 getch();
 system("cls");
+check(&personagem);
 imprimirAtributos(&personagem[0]);
 printf("\n\n*  Após a batalha, você olha para a frente e vê belos cristais. Você tem um pressentimento ruim.\n");
 getch();
@@ -144,5 +146,5 @@ imprimirMonstro(&monstro);
 iniciarbatalha(classe, &personagem[0], &monstro);
 getch();
 
-	return 0;
+return 0;
 }
