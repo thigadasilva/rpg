@@ -11,6 +11,8 @@ typedef struct{
 	int xp;
 	int nivel;
 	int moeda;
+	int potionsHp;
+	int potionsEnergia;
 } Atributos;
 
 void inicializarPersonagens(Atributos *atributos) {
@@ -22,6 +24,8 @@ void inicializarPersonagens(Atributos *atributos) {
 	atributos->xp = 0;
 	atributos->nivel = 0;
 	atributos->moeda = 0;
+	atributos->potionsHp = 3;
+	atributos->potionsEnergia = 3;
 }
 void imprimirAtributos(Atributos *personagem){
 	for(int i = 0; i < 1; i++){
@@ -33,6 +37,8 @@ void imprimirAtributos(Atributos *personagem){
 	printf("|  Vida: %d\n", personagem[0].ivida);
 	printf("|  Inteligência: %d\n", personagem[0].iinteligencia);
 	printf("|  Nível: %d\n", personagem[0].nivel);
-	printf("--------------------------------------------------------------------------------\n");
+	printf("|  Dinheiro: %d\n", personagem[0].moeda);
+	printf("|  Poções de Vida: %d\n", personagem[0].potionsHp);
+	printf("|  Poções de Energia: %d\n", personagem[0].potionsEnergia);
 }
 }
