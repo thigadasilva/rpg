@@ -35,7 +35,7 @@ Monstro monstro = criarMonstrosRandom();
 	printf("\nEscolha uma das classes a seguir:\n1 - Guerreiro - Altos níveis de Força e vida iniciais.\n");
 	printf("2 - Mago - Altos níveis de Inteligência iniciais.\n");
 	printf("3 - Arqueiro - Altos níveis de Destreza iniciais.\n");
-	printf("4 - Ladino - Altos níveis de Destreza e força iniciais.\n\n");
+	printf("4 - Ladino - Altos níveis de Destreza e Agilidade iniciais.\n\n");
 	scanf("%d", &classe);
 
 	switch(classe){
