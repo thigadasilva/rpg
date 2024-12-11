@@ -135,16 +135,32 @@ imprimirAtributos(&personagem[0]);
 imprimirMonstro(&monstro);
 
 iniciarbatalha(classe, &personagem[0], &monstro);
+check(personagem);
 getch();
 system("cls");
-check(personagem);
+
 imprimirAtributos(&personagem[0]);
+
 printf("\n\n*  Após a batalha, você olha para a frente e vê belos cristais. Você tem um pressentimento ruim.\n");
 getch();
 monstro = criarMonstrosRandom();
 imprimirMonstro(&monstro);
 iniciarbatalha(classe, &personagem[0], &monstro);
+check(personagem);
 getch();
+system("cls");
+imprimirAtributos(&personagem[0]);
+
+printf("\n\n*  Próxima dos cristais, você observa a entrada para uma caverna. Você entra na mesma.\n");
+getch();
+monstro = criarMonstrosRandom();
+imprimirMonstro(&monstro);
+iniciarbatalha(classe, &personagem[0], &monstro);
+check(personagem);
+getch();
+system("cls");
+imprimirAtributos(&personagem[0]);
+
 
 return 0;
 }
