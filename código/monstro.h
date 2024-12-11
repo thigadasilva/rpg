@@ -61,7 +61,7 @@ Monstro criarMonstrosRandom(){
  	  sprintf(monstro.nome, "%s, %s", nomes[indice], criaturas[indiceCriatura]);
 	monstro.vida = geradorMonstros(50, 70);
 	monstro.forca = geradorMonstros(3, 15);
-	monstro.ataque = geradorMonstros(1, 10);
+	monstro.ataque = geradorMonstros(1, 7);
 	
 	return monstro;
 }
