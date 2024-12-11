@@ -23,7 +23,7 @@ void atacar(int classe, Atributos *personagem, Monstro *monstro){
 				printf("Você causou %d de Dano Crítico!\n", danoCritico);
 				monstro->vida -= danoCritico;
 				monstro->vida -= danoTotal;
-				printf("Você atacou o monstro por %d de dano!\n", danoTotal);
+			
 				printf("O monstro está com %d de hp restantes.\n", monstro->vida);
 	} else{
 		monstro->vida -= danoTotal;
@@ -40,7 +40,7 @@ void atacar(int classe, Atributos *personagem, Monstro *monstro){
 				printf("Você causou %d de Dano Crítico!\n", danoCritico);
 				monstro->vida -= danoCritico;
 				monstro->vida -= danoTotal;
-				printf("Você atacou o monstro por %d de dano!\n", danoCritico);
+				
 				printf("O monstro está com %d de hp restantes.\n", monstro->vida);
 	} else{
 				monstro->vida -= danoTotal;
@@ -58,7 +58,7 @@ void atacar(int classe, Atributos *personagem, Monstro *monstro){
 				printf("Você causou %d de Dano Crítico!\n", danoCritico);
 				monstro->vida -= danoCritico;
 				monstro->vida -= danoTotal;
-				printf("Você atacou o monstro por %d de dano!\n", danoCritico);
+		
 				printf("O monstro está com %d de hp restantes.\n", monstro->vida);
 	} else{
 				monstro->vida -= danoTotal;
@@ -76,7 +76,7 @@ void atacar(int classe, Atributos *personagem, Monstro *monstro){
 				printf("Você causou %d de Dano Crítico!\n", danoCritico);
 				monstro->vida -= danoCritico;
 				monstro->vida -= danoTotal;
-				printf("Você atacou o monstro por %d de dano!\n", danoCritico);
+				
 				printf("O monstro está com %d de hp restantes.\n", monstro->vida);
 	} else{
 				monstro->vida -= danoTotal;
@@ -89,6 +89,9 @@ void atacar(int classe, Atributos *personagem, Monstro *monstro){
 		break;
 	}
 }
+
+
+
 // FUGA
 int calcularChanceFuga(Atributos personagem) {
 	int chanceFuga = (personagem.iagilidade + personagem.nivel);
@@ -128,7 +131,10 @@ void iniciarbatalha(int classe, Atributos *personagem, Monstro *monstro){
 			atacar(classe, personagem, monstro);
 			break;
 		case 2:
-			printf("  OPÇÃO NÃO IMPLEMENTADA AINDA\n");
+			printf("INVENTÁRIO:\n");
+			printf("Poções de vida: %d\n", personagem->potionsHp);
+			printf("Poções de vida: %d", personagem->potionsEnergia);
+			
 			break;
 		case 3:
 		fugiu =	tentarFuga(chanceFuga, monstro);
