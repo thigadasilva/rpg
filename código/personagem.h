@@ -47,12 +47,35 @@ void imprimirAtributos(Atributos *personagem){
 	printf("|  Dinheiro: %d\n", personagem[0].moeda);
 }
 }
-void atualizarAtributos(Atributos *personagem) {
-    personagem->iforca += rand() % 5 + 1;
+void atualizarAtributos(int classe,Atributos *personagem) {
+	if(classe == 1){
+    personagem->iforca += rand() % 10 + 5;
     personagem->iagilidade += rand() % 3 + 1; 
     personagem->idestreza += rand() % 2 + 1; 
     personagem->iinteligencia += rand() % 2 + 1; 
+    personagem->ivida += rand() % 30 + 20; 
+    personagem->ienergia += rand() % 20 + 5; 
+    } else if(classe == 2){
+    	personagem->iforca += rand() % 3 + 1;
+    personagem->iagilidade += rand() % 5 + 1; 
+    personagem->idestreza += rand() % 2 + 1; 
+    personagem->iinteligencia += rand() % 10 + 5; 
     personagem->ivida += rand() % 20 + 10; 
-    personagem->ienergia += rand() % 10 + 5; 
+    personagem->ienergia += rand() % 20 + 5; 
+	} else if(classe == 3){
+		personagem->iforca += rand() % 3 + 1;
+    personagem->iagilidade += rand() % 5 + 1; 
+    personagem->idestreza += rand() % 10 + 5; 
+    personagem->iinteligencia += rand() % 2 + 1; 
+    personagem->ivida += rand() % 20 + 12; 
+    personagem->ienergia += rand() % 20 + 5; 
+	} else if(classe == 4){
+	personagem->iforca += rand() % 1 + 1;
+    personagem->iagilidade += rand() % 7 + 2; 
+    personagem->idestreza += rand() % 10 + 5; 
+    personagem->iinteligencia += rand() % 1 + 1; 
+    personagem->ivida += rand() % 20 + 12; 
+    personagem->ienergia += rand() % 20 + 5; 
+	}
 }
 

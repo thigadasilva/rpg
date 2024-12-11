@@ -282,6 +282,6 @@ void iniciarbatalha(int classe, Atributos *personagem, Monstro *monstro){
 		personagem->nivel += 1;
 		printf("Você subiu de nível!\n");
 		printf("Nível atual: %d", personagem->nivel);
-		atualizarAtributos(personagem);
+		atualizarAtributos(classe, personagem);
 	}
 }
