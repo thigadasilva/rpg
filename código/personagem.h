@@ -27,11 +27,12 @@ void imprimirAtributos(Atributos *personagem){
 	for(int i = 0; i < 1; i++){
 	printf("\n-------------------------------ATRIBUTOS INICIAIS-------------------------------\n");
 	printf("|  Classe: %s\n", personagem[0].classe);
-	printf("|  Força: %d\n", personagem[0].iforca);
+	printf("|  ForÃ§a: %d\n", personagem[0].iforca);
 	printf("|  Destreza: %d\n", personagem[0].idestreza);
 	printf("|  Agilidade: %d\n", personagem[0].iagilidade);
 	printf("|  Vida: %d\n", personagem[0].ivida);
-	printf("|  Inteligência: %d\n", personagem[0].iinteligencia);
-	printf("|  Nível: %d\n", personagem[0].nivel);
+	printf("|  InteligÃªncia: %d\n", personagem[0].iinteligencia);
+	printf("|  NÃ­vel: %d\n", personagem[0].nivel);
+	printf("--------------------------------------------------------------------------------\n");
 }
 }
