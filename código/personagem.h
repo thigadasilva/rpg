@@ -47,3 +47,12 @@ void imprimirAtributos(Atributos *personagem){
 	printf("|  Dinheiro: %d\n", personagem[0].moeda);
 }
 }
+void atualizarAtributos(Atributos *personagem) {
+    personagem->iforca += rand() % 5 + 1;
+    personagem->iagilidade += rand() % 3 + 1; 
+    personagem->idestreza += rand() % 2 + 1; 
+    personagem->iinteligencia += rand() % 2 + 1; 
+    personagem->ivida += rand() % 20 + 10; 
+    personagem->ienergia += rand() % 10 + 5; 
+}
+

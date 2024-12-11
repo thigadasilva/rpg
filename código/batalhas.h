@@ -272,9 +272,9 @@ void iniciarbatalha(int classe, Atributos *personagem, Monstro *monstro){
 	}else if (monstro->vida <= 0){
 		printf("\nVocê venceu!\n\n");
 		personagem->xp += rand() % 20 + 50;
-		printf("XP: %d", personagem->xp);
+		printf("XP atual: %d", personagem->xp);
 		personagem->moeda += rand() % 20 + 100;
-		printf("\nVocê recebeu %d moedas de ouro.\n", personagem->moeda);
+		printf("\n Moedas de ouro atuais: %d\n", personagem->moeda);
 	}
 		
 	} if(personagem->xp >= 100){
@@ -282,5 +282,6 @@ void iniciarbatalha(int classe, Atributos *personagem, Monstro *monstro){
 		personagem->nivel += 1;
 		printf("Você subiu de nível!\n");
 		printf("Nível atual: %d", personagem->nivel);
+		atualizarAtributos(personagem);
 	}
 }
