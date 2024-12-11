@@ -23,7 +23,7 @@ Monstro monstro = criarMonstrosRandom();
 	int classe;
 	int letras = 0, i = 0;;
 	
-	printf("Bem vindo a sua próxima aventura! Vamos criar o seu personagem!\n");
+	printf("Bem vindo a sua próxima aventura! Vamos criar o seu personagem!\n\n");
 	// Verificação se o nome tem mais de 15 letras
 	do{
 	printf("Insira seu nome:\n");
@@ -46,44 +46,44 @@ Monstro monstro = criarMonstrosRandom();
 		case 1: 
 			printf("\n  Guerreiro!\n");
 			strcpy(personagem[i].classe, "Guerreiro");
-			personagem[i].iforca = 10;
-			personagem[i].ivida = 25;
-			personagem[i].iagilidade = 0;
-			personagem[i].iinteligencia = 0;
-			personagem[i].idestreza = 5;
+			personagem[i].iforca = 12;
+			personagem[i].ivida = 28;
+			personagem[i].iagilidade = 2;
+			personagem[i].iinteligencia = 4;
+			personagem[i].idestreza = 6;
 			personagem[i].xp = 0;
 			personagem[i].nivel = 1;
 			break;
 		case 2:
 			printf("\n  Mago! \n");
 			strcpy(personagem[i].classe, "Mago");
-			personagem[i].iforca = 0;
-			personagem[i].ivida = 20;
-			personagem[i].iagilidade = 0;
-			personagem[i].iinteligencia = 10;
-			personagem[i].idestreza = 5;
+			personagem[i].iforca = 4;
+			personagem[i].ivida = 18;
+			personagem[i].iagilidade = 4;
+			personagem[i].iinteligencia = 16;
+			personagem[i].idestreza = 4;
 			personagem[i].xp = 0;
 			personagem[i].nivel = 1;
 			break;
 		case 3:
 			printf("\n  Arqueiro!\n");
 			strcpy(personagem[i].classe, "Arqueiro");
-			personagem[i].iforca = 0;
-			personagem[i].ivida = 20;
-			personagem[i].iagilidade = 5;
-			personagem[i].iinteligencia = 0;
-			personagem[i].idestreza = 10;
+			personagem[i].iforca = 8;
+			personagem[i].ivida = 22;
+			personagem[i].iagilidade = 10;
+			personagem[i].iinteligencia = 6;
+			personagem[i].idestreza = 14;
 			personagem[i].xp = 0;
 			personagem[i].nivel = 1;
 			break;
 		case 4:
 			printf("\n  Ladino!\n");
 			strcpy(personagem[i].classe, "Ladino");
-			personagem[i].iforca = 0;
+			personagem[i].iforca = 10;
 			personagem[i].ivida = 20;
-			personagem[i].iagilidade = 10;
-			personagem[i].iinteligencia = 0;
-			personagem[i].idestreza = 8;
+			personagem[i].iagilidade = 12;
+			personagem[i].iinteligencia = 8;
+			personagem[i].idestreza = 10;
 			personagem[i].xp = 0;
 			personagem[i].nivel = 1;
 			break;	
