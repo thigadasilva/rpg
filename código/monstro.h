@@ -10,7 +10,7 @@ typedef struct{
 
 char *nomes[] = {
 
-"Abnegai", //é Jean colega de sala
+"Abnegai", //Ã© Jean colega de sala
 "Trefilarco", // Victor Rafael colega da sala
 "Danai", // Darlan colega da sala
 
@@ -23,7 +23,7 @@ char *nomes[] = {
 "Ignotos", // Gustavo ex aluno
 
 "Aquilatai", // Quecila colega da sala
-"minore", // Márcio ex aluno
+"minore", // MÃ¡rcio ex aluno
 "merego", // Mirelle colega da sala 
 };
 
@@ -47,10 +47,10 @@ Monstro criarMonstrosRandom(){
 	return monstro;
 }
 void imprimirMonstro(Monstro *monstro){
-	printf("Um %s te encontrou!\n", monstro->nome);
+	printf("\nUm %s te encontrou!\n", monstro->nome);
     printf("\n---------------------------------STATUS---------------------------------\n");
     printf("%s\n", monstro->nome);
     printf("Vida: %d\n", monstro->vida);
-    printf("For�a: %d\n\n", monstro->forca);
+    printf("Força: %d\n\n", monstro->forca);
     getch();
 }
