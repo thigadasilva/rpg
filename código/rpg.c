@@ -4,10 +4,10 @@
 #include <conio.h>
 #include <stdlib.h>
 #include <time.h>
-#include "personagem.h" // dados do personagem
+#include "personagem.h" 
 #include "monstro.h"
 #include "batalhas.h"
-
+#include "economia.h"
 
 
 
@@ -18,6 +18,7 @@ srand(time(NULL));
 Monstro monstro = criarMonstrosRandom();
 	
 	Atributos personagem[1];
+	Medonho medonho;
 	int classe;
 	int letras = 0, i = 0;;
 	do{
@@ -44,7 +45,7 @@ Monstro monstro = criarMonstrosRandom();
 			strcpy(personagem[i].classe, "Guerreiro");
 			personagem[i].iforca = 12;
 			personagem[i].ivida = 28;
-			personagem[i].ienergia = 100;
+			personagem[i].ienergia = 60;
 			personagem[i].iagilidade = 2;
 			personagem[i].iinteligencia = 4;
 			personagem[i].idestreza = 6;
@@ -56,7 +57,7 @@ Monstro monstro = criarMonstrosRandom();
 			strcpy(personagem[i].classe, "Mago");
 			personagem[i].iforca = 4;
 			personagem[i].ivida = 18;
-			personagem[i].ienergia = 100;
+			personagem[i].ienergia = 70;
 			personagem[i].iagilidade = 4;
 			personagem[i].iinteligencia = 16;
 			personagem[i].idestreza = 4;
@@ -68,7 +69,7 @@ Monstro monstro = criarMonstrosRandom();
 			strcpy(personagem[i].classe, "Arqueiro");
 			personagem[i].iforca = 8;
 			personagem[i].ivida = 22;
-			personagem[i].ienergia = 100;
+			personagem[i].ienergia = 50;
 			personagem[i].iagilidade = 10;
 			personagem[i].iinteligencia = 6;
 			personagem[i].idestreza = 14;
@@ -80,7 +81,7 @@ Monstro monstro = criarMonstrosRandom();
 			strcpy(personagem[i].classe, "Ladino");
 			personagem[i].iforca = 10;
 			personagem[i].ivida = 20;
-			personagem[i].ienergia = 100;
+			personagem[i].ienergia = 50;
 			personagem[i].iagilidade = 12;
 			personagem[i].iinteligencia = 8;
 			personagem[i].idestreza = 10;
@@ -162,12 +163,14 @@ system("cls");
 imprimirAtributos(&personagem[0]);
 
 printf("\n\n*  Você consegue sentir uma presença mais a frente\n Ela parece estar te aguardando. ");
-printf("\n\n Aproxime-se Humano, tenho artefatos que irão te interessar.");
+printf("\n\n Aproxime-se Humano, tenho artefatos que irão te interessar.\n");
 printf("Esqueci meu nome há tempos, mas me chamam de Medonho, por algum motivo.");
 getch();
-printf("Tenho poções e itens que podem te fortalecer\n para a luta que encontrará mais em frente.");
-printf("Porém sugiro que compre somente os itens que irão te beneficiar.\n Caso contrário, tenho certeza que sofrerá.");
-
+printf("\nTenho poções e itens que podem te fortalecer para a luta que encontrará mais em frente.\n");
+printf("Porém sugiro que compre somente os itens que irão te beneficiar.\n Caso contrário, tenho certeza que sofrerá.\n");
+printf("Aproxime-se e escolha com sabedoria.\n\n");
+inicializarMedonho(&medonho);
+lojaMedonho(&medonho, &personagem[0]);
 
 
 return 0;

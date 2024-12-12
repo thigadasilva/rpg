@@ -10,7 +10,7 @@ typedef struct{
 
 char *nomes[] = {
 
-"Abnegai", //é Jean colega de sala
+"Abnegai", // Jean colega de sala
 "Trefilarco", // Victor Rafael colega da sala
 "Danai", // Darlan colega da sala
 
@@ -23,7 +23,7 @@ char *nomes[] = {
 "Ignotos", // Gustavo ex aluno
 
 "Aquilatai", // Quecila colega da sala
-"Minore", // Márcio ex aluno
+"Minore", // Marrcio ex aluno
 "Merego", // Mirelle colega da sala 
 };
 

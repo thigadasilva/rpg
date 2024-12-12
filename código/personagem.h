@@ -28,22 +28,22 @@ void inicializarPersonagens(Atributos *atributos) {
 	atributos->xp = 0;
 	atributos->nivel = 0;
 	atributos->moeda = 0;
-	atributos->potionsHpMin = 3;
+	atributos->potionsHpMin = 1;
 	atributos->potionsHpMax = 0;
-	atributos->potionsEnergiaMin = 3;
+	atributos->potionsEnergiaMin = 1;
 	atributos->potionsEnergiaMax = 0;
 }
 void imprimirAtributos(Atributos *personagem){
 	for(int i = 0; i < 1; i++){
 	printf("\n-------------------------------ATRIBUTOS INICIAIS-------------------------------\n");
 	printf("|  Classe: %s\n", personagem[0].classe);
+	printf("|  Nível: %d | (%d/100)\n\n", personagem[0].nivel, personagem[0].xp);
 	printf("|  Força: %d\n", personagem[0].iforca);
 	printf("|  Destreza: %d\n", personagem[0].idestreza);
 	printf("|  Agilidade: %d\n", personagem[0].iagilidade);
+	printf("|  Inteligência: %d\n\n", personagem[0].iinteligencia);
 	printf("|  Vida: %d\n", personagem[0].ivida);
 	printf("|  Energia: %d\n", personagem[0].ienergia);
-	printf("|  Inteligência: %d\n", personagem[0].iinteligencia);
-	printf("|  Nível: %d | (%d/100)\n", personagem[0].nivel, personagem[0].xp);
 	printf("|  Dinheiro: %d\n", personagem[0].moeda);
 }
 }
@@ -54,7 +54,7 @@ void atualizarAtributos(int classe,Atributos *personagem) {
     personagem->idestreza += rand() % 2 + 1; 
     personagem->iinteligencia += rand() % 2 + 1; 
     personagem->ivida += rand() % 30 + 20; 
-    personagem->ienergia += rand() % 20 + 5; 
+    personagem->ienergia += rand() % 15 + 5; 
     } else if(classe == 2){
     	personagem->iforca += rand() % 3 + 1;
     personagem->iagilidade += rand() % 5 + 1; 
@@ -68,14 +68,14 @@ void atualizarAtributos(int classe,Atributos *personagem) {
     personagem->idestreza += rand() % 10 + 5; 
     personagem->iinteligencia += rand() % 2 + 1; 
     personagem->ivida += rand() % 20 + 12; 
-    personagem->ienergia += rand() % 20 + 5; 
+    personagem->ienergia += rand() % 10 + 5; 
 	} else if(classe == 4){
 	personagem->iforca += rand() % 1 + 1;
     personagem->iagilidade += rand() % 7 + 2; 
     personagem->idestreza += rand() % 10 + 5; 
     personagem->iinteligencia += rand() % 1 + 1; 
     personagem->ivida += rand() % 20 + 12; 
-    personagem->ienergia += rand() % 20 + 5; 
+    personagem->ienergia += rand() % 10 + 5; 
 	}
 }
 void atualizarEnergia(Atributos *personagem, int custoEnergia) {
