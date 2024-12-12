@@ -127,7 +127,7 @@ void pocaoMedonho(Medonho *medonho, Atributos *personagem, int escolhaLoja2, int
 }
 
 void lojaMedonho(Medonho *medonho, Atributos *personagem){
-	int escolhaLoja, escolhaLoja2, choice;
+	int escolhaLoja, escolhaLoja2, choice, extra;
 printf("===============================LOJA DO MEDONHO===============================\n");
 printf(" 1 - Poções de vida pequenas: Preço: 50 moedas de ouro.       |   2 - Poções de vida grandes: Preço: 90 moedas de ouro.  \n", medonho->pocaoHpMin, medonho->pocaoHpMax);
 printf(" 3 - Poções de energia pequenas: Preço: 50 moedas de ouro.    |  4 - Poções de energia grandes: Preço: 90 moedas de ouro.  \n", medonho->pocaoEnergiaMin, medonho->pocaoEnergiaMax);
@@ -159,4 +159,28 @@ do {
 		printf("Opção inválida!");
 	}
 } while (escolhaLoja == 5);
+
+	switch(escolhaLoja2){
+	case 1:
+	extra = rand() % 10 + 5;
+	personagem->iforca += extra;
+	printf("Sua força aumentou em %d\n", extra);
+	break;
+	case 2:
+	extra = rand() % 10 + 5;
+	personagem->iinteligencia += extra;
+	printf("Sua inteligência aumentou em %d\n", extra);
+	break;
+	case 3:
+	extra = rand() % 10 + 5;
+	personagem->idestreza += extra;
+	printf("Sua destreza aumentou em %d\n", extra);
+	break;
+	case 4:
+	extra = rand() % 10 + 5;
+	personagem->iagilidade += extra;
+	printf("Sua agilidade aumentou em %d\n", extra);
+	break;
+}
+
 }

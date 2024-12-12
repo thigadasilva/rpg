@@ -36,6 +36,10 @@ void inicializarPersonagens(Atributos *atributos) {
 	atributos->potionsHpMax = 0;
 	atributos->potionsEnergiaMin = 1;
 	atributos->potionsEnergiaMax = 0;
+	atributos->adaga = 0;
+	atributos->arco = 0;
+	atributos->clava = 0;
+	atributos->tomo = 0;
 }
 void imprimirAtributos(Atributos *personagem){
 	for(int i = 0; i < 1; i++){
