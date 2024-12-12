@@ -16,6 +16,10 @@ typedef struct{
 	int potionsHpMin;
 	int potionsEnergiaMax;
 	int potionsEnergiaMin;
+	int adaga;
+	int clava;
+	int tomo;
+	int arco;
 } Atributos;
 
 void inicializarPersonagens(Atributos *atributos) {

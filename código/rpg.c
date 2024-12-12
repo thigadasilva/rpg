@@ -172,6 +172,6 @@ printf("Aproxime-se e escolha com sabedoria.\n\n");
 inicializarMedonho(&medonho);
 lojaMedonho(&medonho, &personagem[0]);
 
-
+printf("DAMN kk");
 return 0;
 }
