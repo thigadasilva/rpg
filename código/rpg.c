@@ -184,5 +184,39 @@ printf("* Você consegue ver uma entrada mais adiante.\n Você entra câmara adentr
 Boss boss = criarBoss();
 imprimirBoss(&boss);
 iniciarBatalhaContraBoss(classe, &personagem[0], &boss);
+check(personagem);
+
+imprimirAtributos(&personagem[0]);
+getch();
+monstro = criarMonstrosRandom();
+imprimirMonstro(&monstro);
+iniciarbatalha(classe, &personagem[0], &monstro);
+check(personagem);
+getch();
+system("cls");
+imprimirAtributos(&personagem[0]);
+
+getch();
+monstro = criarMonstrosRandom();
+imprimirMonstro(&monstro);
+iniciarbatalha(classe, &personagem[0], &monstro);
+check(personagem);
+getch();
+system("cls");
+imprimirAtributos(&personagem[0]);
+
+getch();
+monstro = criarMonstrosRandom();
+imprimirMonstro(&monstro);
+iniciarbatalha(classe, &personagem[0], &monstro);
+check(personagem);
+getch();
+system("cls");
+imprimirAtributos(&personagem[0]);
+
+
+
+
+
 return 0;
 }
