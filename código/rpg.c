@@ -8,6 +8,7 @@
 #include "monstro.h"
 #include "batalhas.h"
 #include "economia.h"
+#include "economia2.h"
 #include "biofa.h"
 
 
@@ -19,6 +20,7 @@ Monstro monstro = criarMonstrosRandom();
 	
 	Atributos personagem[1];
 	Medonho medonho;
+	Medonho2 Medonho2;
 	int classe;
 	int letras = 0, i = 0;;
 	do{
@@ -103,7 +105,7 @@ imprimirAtributos(&personagem[0]);
 
 
 
-printf("\n\n Vôce está adiante da Montanha Dedo de Deus, uma fortaleza inexpugnável.\n");
+printf("\n\n Voce está adiante da Montanha Dedo de Deus, uma fortaleza inexpugnável.\n");
 printf(" Márcio, outrora um herói, agora comandante das forças sombrias, asguarda no topo.\n");
 printf(" Sua missão: derrotá-lo e restaurar a paz...\n\n");
 getch();
@@ -195,5 +197,45 @@ Boss boss = criarBoss();
 imprimirIntroBiofa();
 imprimirBoss(&boss);
 iniciarBatalhaContraBoss(classe, &personagem[0], &boss);
+check(personagem);
+imprimirAtributos(&personagem[0]);
+
+getch();
+monstro = criarMonstrosRandom();
+imprimirMonstro(&monstro);
+iniciarbatalha(classe, &personagem[0], &monstro);
+check(personagem);
+getch();
+system("cls");
+
+imprimirAtributos(&personagem[0]);
+getch();
+monstro = criarMonstrosRandom();
+imprimirMonstro(&monstro);
+iniciarbatalha(classe, &personagem[0], &monstro);
+check(personagem);
+getch();
+system("cls");
+
+imprimirAtributos(&personagem[0]);
+getch();
+monstro = criarMonstrosRandom();
+imprimirMonstro(&monstro);
+iniciarbatalha(classe, &personagem[0], &monstro);
+check(personagem);
+getch();
+system("cls");
+
+imprimirAtributos(&personagem[0]);
+printf("\n############################################\n");
+printf("\n############################################\n");
+printf("\n############################################\n");
+inicializarMedonho2(&Medonho2);
+lojaMedonho2(&Medonho2, &personagem[0]);
+getch();
+
+imprimirAtributos(&personagem[0]);
+
+
 return 0;
 }
