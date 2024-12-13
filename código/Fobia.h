@@ -37,7 +37,7 @@ int calcularDano(Chefao *fobia){
 	return dano;
 }
 
-void imprimirChegao(Chefao *fobia){
+void imprimirChefao(Chefao *fobia){
 	printf("O chefão %s busca sua vingança!\n", fobia->nome);
 	printf("\n---------------------------------STATUS---------------------------------\n");
 	printf("Nome: %s\n", fobia->nome);
