@@ -183,9 +183,6 @@ printf("* Você consegue ver uma entrada mais adiante.\n Você entra câmara adentr
 
 Boss boss = criarBoss();
 imprimirBoss(&boss);
-iniciarbatalha(classe, &personagem[0], (Monstro*)&boss);
+iniciarBatalhaContraBoss(classe, &personagem, &boss);
 return 0;
-
-
 }
-
