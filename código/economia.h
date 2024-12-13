@@ -217,13 +217,13 @@ void verificarItem(Atributos *personagem){
 	if(personagem->clava != 0){
 	personagem->iforca = personagem->iforca + 10;
 	printf("Sua força aumentou em 10\n");
-} else if(personagem->tomo != 0){
+} if(personagem->tomo != 0){
 	personagem->iinteligencia = personagem->iinteligencia + 10;
 	printf("Sua inteligência aumentou em 10\n");
-} else if(personagem->arco != 0){
+}  if(personagem->arco != 0){
 	personagem->idestreza = personagem->idestreza + 10;
 	printf("Sua destreza aumentou em 10\n");
-} else if(personagem->adaga != 0){
+} if(personagem->adaga != 0){
 	personagem->iagilidade = personagem->iagilidade + 10;
 	printf("Sua agilidade aumentou em 10\n");
 }

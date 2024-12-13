@@ -63,6 +63,33 @@ void inventario(Atributos *personagem){
 		}
 }
 
+typedef struct {
+    int cooldown; // tempo de recarga em segundos
+    int ultimoUso; // tempo em que a habilidade foi usada pela última vez
+} Habilidade;
+
+Habilidade chuvaDeLaminas = {30, 0}; // cooldown de 30 segundos
+Habilidade rouboDeVida = {30, 0};
+
+int tempoRestanteCooldown(Habilidade *habilidade) {
+    int tempoAtual = time(NULL);
+    return habilidade->cooldown - (tempoAtual - habilidade->ultimoUso);
+}
+
+int verificarCooldown(Habilidade *habilidade) {
+    int tempoAtual = time(NULL); // obtém o tempo atual
+    int tempoRestante = habilidade->cooldown - (tempoAtual - habilidade->ultimoUso);
+    if (tempoRestante > 0) {
+        printf("Habilidade em cooldown. Tempo restante: %d segundos\n", tempoRestante);
+        return 1; // habilidade em cooldown
+    }
+    return 0; // habilidade disponível
+}
+void atualizarCooldown(Habilidade *habilidade) {
+    habilidade->ultimoUso = time(NULL);
+}
+
+
 // ATAQUE
 
 void gameOver(	) {
@@ -81,6 +108,7 @@ void atacar(int classe, Atributos *personagem, Monstro *monstro){
 	int danoAleatorio = rand() % 5 + 1;
 	int danoTotal = danoBase + danoAleatorio;
 	int danoCritico = 0;
+	int skill;
 	
 	 if (personagem->ienergia < custoEnergia) {
         printf("Você não tem energia suficiente para atacar!\n");
@@ -90,7 +118,6 @@ void atacar(int classe, Atributos *personagem, Monstro *monstro){
 	if(rand() % 100 + 1 <= personagem->iagilidade * 2){
 		danoCritico = danoTotal * 2;
 		danoTotal = danoBase + danoAleatorio;
-	
 	}
 
 	int escolha2;
@@ -207,9 +234,52 @@ void atacar(int classe, Atributos *personagem, Monstro *monstro){
 					break;
 			} 
 			}else if(escolha2 == 2){
-				printf("Você usou uma habilidade!\n");
-				turno += 1;
-					break;
+	  if (escolha2 == 2) {
+        printf("1 - Chuva de Lâminas\n2 - Roubo de Vida\n");
+        int skill;
+        scanf("%d", &skill);
+        switch (skill) {
+            case 1:
+            	if (!verificarCooldown(&chuvaDeLaminas)) {
+                if (personagem->ienergia >= custoEnergia + 10) {
+                    personagem->ienergia -= custoEnergia + 10;
+                    monstro->vida -= danoTotal + 20;
+                    printf("Chuva de Lâminas causou %d de dano!\n", danoTotal + 20);
+                    printf("O monstro está com %d de hp restantes.\n\n", monstro->vida);
+                   	printf("\nSua Energia atual: %d\n", personagem->ienergia);
+                } else {
+                    printf("\nVocê não tem energia suficiente!\n");
+                }
+                 atualizarCooldown(&chuvaDeLaminas);
+			} else {
+    		int tempoRestante = 
+			tempoRestanteCooldown(&chuvaDeLaminas);
+		}			
+                break;
+            case 2:
+            	if (!verificarCooldown(&chuvaDeLaminas)) {
+                if (personagem->ienergia >= custoEnergia + 10) {
+                    personagem->ienergia -= custoEnergia + 10;
+                    monstro->vida -= danoTotal;
+                    personagem->ivida += danoTotal / 2;
+                    printf("Você roubou %d de vida do monstro!\n", danoTotal);
+                    printf("O monstro está com %d de hp restantes.\n\n", monstro->vida);
+                    printf("\nSua Energia atual: %d\n", personagem->ienergia);
+                    printf("Seu Hp atual: %d\n", personagem->ivida);
+                } else {
+                    printf("Você não tem energia suficiente!\n");
+                } 
+                 atualizarCooldown(&chuvaDeLaminas);
+                 } else {
+    		int tempoRestante = 
+			tempoRestanteCooldown(&chuvaDeLaminas);
+		}			
+                break;
+            default:
+                printf("Opção inválida!\n");
+        }
+    }
+
 			} else if(escolha2 == 3){
 				break;
 			}
