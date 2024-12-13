@@ -1,20 +1,10 @@
-/* Vai seguir a história matar os monstrinho ai quando formos encaminhar para o bosso colocamos isso no rpg.h =(codigo principal)=
-    Após a vitória sobre o monstro, o Boss é desafiado
-    printf("\n** Você derrotou o monstro! Agora, prepare-se para enfrentar um poderoso Boss! **\n");
-    getch();
-    system("cls");
-    imprimirBoss(&boss);
-    iniciarbatalha(classe, &personagem[0], (Monstro*)&boss); // Enfrenta o Boss
-*/
-
-
 // Estrutura do Boss
 typedef struct {
     char nome[50];
     int vida;
     int forca;
     int ataque;
-}Boss;
+}Biofa;
 
 
 void atacarBoss(int classe, Atributos *personagem, Boss *boss) {
