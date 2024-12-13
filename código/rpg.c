@@ -8,7 +8,7 @@
 #include "monstro.h"
 #include "batalhas.h"
 #include "economia.h"
-
+#include "biofa.h"
 
 
 
@@ -163,16 +163,29 @@ system("cls");
 imprimirAtributos(&personagem[0]);
 
 printf("\n\n*  Você consegue sentir uma presença mais a frente\n Ela parece estar te aguardando. ");
-printf("\n\n Aproxime-se Humano, tenho artefatos que irão te interessar.\n");
-printf("Esqueci meu nome há tempos, mas me chamam de Medonho, por algum motivo.");
+printf("\n\n Medonho: Aproxime-se Humano, tenho artefatos que irão te interessar.\n");
+printf(" Medonho: Esqueci meu nome há tempos, mas me chamam de Medonho, por algum motivo.");
 getch();
-printf("\nTenho poções e itens que podem te fortalecer para a luta que encontrará mais em frente.\n");
-printf("Porém sugiro que compre somente os itens que irão te beneficiar.\n Caso contrário, tenho certeza que sofrerá.\n");
-printf("Aproxime-se e escolha com sabedoria.\n\n");
+printf("\n Medonho: Tenho poções e itens que podem te fortalecer para a luta que encontrará mais em frente.\n");
+printf(" Medonho: Porém sugiro que compre somente os itens que irão te beneficiar.\n Caso contrário, tenho certeza que sofrerá.\n");
+printf(" Medonho: Aproxime-se e escolha com sabedoria.\n\n");
 inicializarMedonho(&medonho);
 lojaMedonho(&medonho, &personagem[0]);
+verificarItem(&personagem[0]);
+getch();
 
-printf("HALA MADRIIIDD\N\N");
 imprimirAtributos(&personagem[0]);
+
+printf("\nVejo que está bem mais forte, deve ser capaz de enfrentar o que está pela frente.\n");
+printf("Boa sorte.\n\n");
+
+printf("* Você consegue ver uma entrada mais adiante.\n Você entra câmara adentro e é esmagado por uma presença poderosa.\n");
+
+Boss boss = criarBoss();
+imprimirBoss(&boss);
+iniciarbatalha(classe, &personagem[0], (Monstro*)&boss);
 return 0;
+
+
 }
+

@@ -28,10 +28,10 @@ Boss criarBoss() {
 }
 
 int calcularDano(Boss *boss){
-	int dano = Boss->forca;
+	int dano = boss->forca;
 	int chancedeCritico = rand() % 100;
 	if(chancedeCritico < 20){
-		dano += Boss->forca;
+		dano += boss->forca;
 		printf("Dano Crítico!\n");
 	}
 	return dano;
@@ -39,11 +39,11 @@ int calcularDano(Boss *boss){
 
 // FunÃ§Ã£o para imprimir o status do Boss
 void imprimirBoss(Boss *boss) {
-    printf("\n** Um poderoso %s te desafiou! **\n", boss->nome);
+    printf("\n** O poderoso %s te desafiou! **\n", boss->nome);
     printf("\n------------------------------STATUS DO BOSS---------------------------------\n");
     printf("%s\n", boss->nome);
     printf("Vida: %d\n", boss->vida);
-    printf("ForÃ§a: %d\n", boss->forca);
+    printf("Força: %d\n", boss->forca);
 }
 
 

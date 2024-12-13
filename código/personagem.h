@@ -53,6 +53,7 @@ void imprimirAtributos(Atributos *personagem){
 	printf("|  Vida: %d\n", personagem[0].ivida);
 	printf("|  Energia: %d\n", personagem[0].ienergia);
 	printf("|  Dinheiro: %d\n", personagem[0].moeda);
+	printf("\nclava: %d\ntomo: %d\narco: %d\nadaga: %d\n", personagem[0].clava, personagem[0].tomo, personagem[0].arco, personagem[0].adaga);
 }
 }
 void atualizarAtributos(int classe,Atributos *personagem) {
