@@ -8,16 +8,13 @@ typedef struct {
 
 
 void atacarBoss(int classe, Atributos *personagem, Boss *boss) {
-	int berserkerDuracao = 30;
-	int berserkerInicio = 0;
-	int aumentoForca;
     int custoEnergia = 10;
     int danoBase = personagem->iforca + personagem->iagilidade + personagem->idestreza + personagem->iinteligencia / 2;
     int danoAleatorio = rand() % 5 + 1;
     int danoTotal = danoBase + danoAleatorio;
     int danoCritico = 0;
     if (personagem->ienergia < custoEnergia) {
-        printf("Você não tem energia suficiente para atacar!\n");
+        printf("VocÃª nÃ£o tem energia suficiente para atacar!\n");
         return;
     }
 
@@ -32,66 +29,24 @@ void atacarBoss(int classe, Atributos *personagem, Boss *boss) {
     switch (classe) {
         case 1: // Guerreiro
             if (escolha2 == 1) {
-                printf("Você atacou fisicamente!\n");
+                printf("VocÃª atacou fisicamente!\n");
                 personagem->ienergia -= custoEnergia;
                 if (danoCritico > 0) {
-                    printf("Você causou %d de Dano Crítico!\n\n", danoCritico);
+                    printf("VocÃª causou %d de Dano CrÃ­tico!\n\n", danoCritico);
                     boss->vida -= danoCritico;
-                    printf("O Biofa está com %d de hp restantes.\n", boss->vida);
+                    printf("O Biofa estÃ¡ com %d de hp restantes.\n", boss->vida);
                     printf("Energia atual: %d\n", personagem->ienergia);
                     break;
                 } else if (danoCritico < 0){
                     boss->vida -= danoTotal;
-                    printf("Você atacou o Biofa por %d de dano!\n", danoTotal);
-                    printf("O Biofa está com %d de hp restantes.\n", boss->vida);
+                    printf("VocÃª atacou o Biofa por %d de dano!\n", danoTotal);
+                    printf("O Biofa estÃ¡ com %d de hp restantes.\n", boss->vida);
                     printf("Energia atual: %d\n", personagem->ienergia);
                     break;
                 }
             } else if (escolha2 == 2) {
-                 printf("1 - Impacto Fulminante\n2 - Berserker\n");
-        int skill;
-        scanf("%d", &skill);
-        switch (skill) {
-            case 1:
-            	if (!verificarCooldown(&impactoFulminante)) {
-                if (personagem->ienergia >= custoEnergia + 10) {
-                    personagem->ienergia -= custoEnergia + 10;
-                    boss->vida -= danoTotal + 20;
-                    printf("impacto Fulminante causou %d de dano!\n", danoTotal + 20);
-                    printf("O boss está com %d de hp restantes.\n\n", boss->vida);
-                   	printf("\nSua Energia atual: %d\n", personagem->ienergia);
-                } else {
-                    printf("\nVocê não tem energia suficiente!\n");
-                }
-                 atualizarCooldown(&impactoFulminante);
-			} else {
-    		int tempoRestante = tempoRestanteCooldown(&impactoFulminante);
-		}			
-                break;
-            case 2:
-            	if (!verificarCooldown(&berserker)) {
-             		 berserkerInicio = time(NULL);
-                if (personagem->ienergia >= custoEnergia + 10) {
-                    personagem->ienergia -= custoEnergia + 10;
-                    aumentoForca = rand() %  10 + 3;
-                    personagem->iforca = (personagem->iforca + aumentoForca);
-                    printf("Você está em modo Berserker e sua força aumentou em %d!\n", personagem->iforca);
-                    printf("\nSua Energia atual: %d\n", personagem->ienergia);
-                } else {
-                    printf("Você não tem energia suficiente!\n");
-                } 
-                 atualizarCooldown(&berserker);
-                 } else {
-    		int tempoRestante = 
-			tempoRestanteCooldown(&berserker);
-		}	
-	} if (berserkerInicio != 0 && time(NULL) - berserkerInicio <= berserkerDuracao) {
-    // Habilidade ainda está ativa
-} else if (berserkerInicio != 0) {
-    personagem->iforca -= aumentoForca;
-    berserkerInicio = 0;
-    printf("A fúria do Berseker acabou.");
-}
+                printf("VocÃª usou uma habilidade!\n");
+                // Implementar habilidade especÃ­fica
                 break;
             } else if (escolha2 == 3) {
                 break;
@@ -99,193 +54,98 @@ void atacarBoss(int classe, Atributos *personagem, Boss *boss) {
             break;
         case 2: // Mago
             if (escolha2 == 1) {
-                printf("Você lançou magias no Biofa!\n");
+                printf("VocÃª lanÃ§ou magias no Biofa!\n");
                 personagem->ienergia -= custoEnergia;
                 if (danoCritico > 0) {
-                    printf("Você causou %d de Dano Crítico!\n\n", danoCritico);
+                    printf("VocÃª causou %d de Dano CrÃ­tico!\n\n", danoCritico);
                     boss->vida -= danoCritico;
-                    printf("O Biofa está com %d de hp restantes.\n", boss->vida);
+                    printf("O Biofa estÃ¡ com %d de hp restantes.\n", boss->vida);
                     printf("Energia atual: %d\n", personagem->ienergia);
                     break;
                 } else {
                     boss->vida -= danoTotal;
-                    printf("Você atacou o Biofa por %d de dano!\n", danoTotal);
-                    printf("O Biofa está com %d de hp restantes.\n", boss->vida);
+                    printf("VocÃª atacou o Biofa por %d de dano!\n", danoTotal);
+                    printf("O Biofa estÃ¡ com %d de hp restantes.\n", boss->vida);
                     printf("Energia atual: %d\n", personagem->ienergia);
                      break;
                 }
             } else if (escolha2 == 2) {
-                printf("Você usou uma habilidade!\n");
-                		  printf("1 - Drenador de Almas\n 2 - Furia de Pegasus\n");
-        int skill;
-        scanf("%d", &skill);
-        switch (skill) {
-            case 1:
-            	if (!verificarCooldown(&drenadorDeAlmas)) {
-                if (personagem->ienergia >= custoEnergia + 10) {
-                    personagem->ienergia -= custoEnergia + 10;
-                    boss->vida -= danoTotal + 20;
-                    printf("Drenador de Almas causou %d de dano!\n", danoTotal + 20);
-                    printf("O boss está com %d de hp restantes.\n\n", boss->vida);
-                   	printf("\nSua Energia atual: %d\n", personagem->ienergia);
-                   	turno = !turno;
-                } else {
-                    printf("\nVocê não tem energia suficiente!\n");
-                }
-                 atualizarCooldown(&drenadorDeAlmas);
-			} else {
-    		int tempoRestante = tempoRestanteCooldown(&drenadorDeAlmas);
-		}			
-                break;
-            case 2:
-            	if (!verificarCooldown(&furiaDePegasus)) {
-                if (personagem->ienergia >= custoEnergia + 10) {
-                    personagem->ienergia -= custoEnergia + 10;
-                    boss->vida -= danoTotal + 10;
-                    printf("Você retirou %d de vida do monstro!\n", danoTotal);
-                    printf("O boss está com %d de hp restantes.\n\n", boss->vida);
-                    printf("\nSua Energia atual: %d\n", personagem->ienergia);
-                    turno = !turno;
-                } else {
-                    printf("Você não tem energia suficiente!\n");
-                } 
-                 atualizarCooldown(&furiaDePegasus);
-                 } else {
-    		int tempoRestante = tempoRestanteCooldown(&furiaDePegasus);
-		}
+                printf("VocÃª usou uma habilidade!\n");
+                // Implementar habilidade especÃ­fica
                  break;
-            } 
-			}else if (escolha2 == 3) {
+            } else if (escolha2 == 3) {
                 break;
             }
             break;
         case 3: // Arqueiro
             if (escolha2 == 1) {
-                printf("Você atirou projéteis no Biofa!\n");
+                printf("VocÃª atirou projÃ©teis no Biofa!\n");
                 personagem->ienergia -= custoEnergia;
                 if (danoCritico > 0) {
-                    printf("Você causou %d de Dano Crítico!\n\n", danoCritico);
+                    printf("VocÃª causou %d de Dano CrÃ­tico!\n\n", danoCritico);
                     boss->vida -= danoCritico;
-                    printf("O Biofa está com %d de hp restantes.\n", boss->vida);
+                    printf("O Biofa estÃ¡ com %d de hp restantes.\n", boss->vida);
                     printf("Energia atual: %d\n", personagem->ienergia);
                      break;
                 } else {
                     boss->vida -= danoTotal;
-                    printf("Você atacou o Biofa por %d de dano!\n", danoTotal);
-                    printf("O Biofa está com %d de hp restantes.\n", boss->vida);
+                    printf("VocÃª atacou o Biofa por %d de dano!\n", danoTotal);
+                    printf("O Biofa estÃ¡ com %d de hp restantes.\n", boss->vida);
                     	printf("Sua Energia atual: %d", personagem->ienergia);
 					break;
 			} 
 			}else if(escolha2 == 2){
-		printf("1 - Rajada de Flechas\n2 - Tiro Certeiro\n");
-        int skill;
-        scanf("%d", &skill);
-        switch (skill) {
-            case 1:
-            	if (!verificarCooldown(&rajadaDeFlechas)) {
-                if (personagem->ienergia >= custoEnergia + 10) {
-                    personagem->ienergia -= custoEnergia + 10;
-                    boss->vida -= danoTotal - 30;
-                    boss->vida -= danoTotal - 30;
-                    boss->vida -= danoTotal - 30;
-                    printf("Rajada de flechas acertou o inimigo 3 vezes!\n");
-                    printf("Cada rajada causou %d de dano!\n", danoTotal - 30);
-                    printf("O monstro está com %d de hp restantes.\n\n", boss->vida);
-                   	printf("\nSua Energia atual: %d\n", personagem->ienergia);
-                   	turno = !turno;
-                } else {
-                    printf("\nVocê não tem energia suficiente!\n");
-                }
-                 atualizarCooldown(&rajadaDeFlechas);
-			} else {
-    		int tempoRestante = tempoRestanteCooldown(&rajadaDeFlechas);
-		}			
-                break;
-            case 2:
-            	if (!verificarCooldown(&tiroCerteiro)) {
-                if (personagem->ienergia >= custoEnergia + 10) {
-                    personagem->ienergia -= custoEnergia + 10;
-                    boss->vida -= danoTotal * 2;
-                    printf("Você acertou um ponto vital e causou %d de dano!\n", danoTotal * 2);
-                    printf("O monstro está com %d de hp restantes.\n\n", boss->vida);
-                    printf("\nSua Energia atual: %d\n", personagem->ienergia);
-                    turno = !turno;
-                } else {
-                    printf("Você não tem energia suficiente!\n");
-                } 
-                 atualizarCooldown(&tiroCerteiro);
-                 } else {
-    		int tempoRestante = tempoRestanteCooldown(&tiroCerteiro);
-		}
+				printf("VocÃª usou uma habilidade!\n");
 				turno += 1;
 					break;
-			} 
-			}else if(escolha2 == 3){
+			} else if(escolha2 == 3){
 				break;
 			}
 		break;
 			case 4:
 			if (escolha2 == 1){
-				printf("\nVocê apunhalou Biofa!\n");
+				printf("\nVocÃª apunhalou Biofa!\n");
 				personagem->ienergia -= custoEnergia;
 							if(danoCritico > 0){
-				printf("Você causou %d de Dano Crítico!\n\n", danoCritico);
+				printf("VocÃª causou %d de Dano CrÃ­tico!\n\n", danoCritico);
 				boss->vida -= danoCritico;
-				printf("O Biofa está com %d de hp restantes.\n", boss->vida);
+				printf("O Biofa estÃ¡ com %d de hp restantes.\n", boss->vida);
 			    printf("Energia atual: %d\n", personagem->ienergia);
-				printf("O Biofa está com %d de hp restantes.\n", boss->vida);
+				printf("O Biofa estÃ¡ com %d de hp restantes.\n", boss->vida);
 				printf("Sua Energia atual: %d", personagem->ienergia);
 				break;
 	} else{
 				boss->vida -= danoTotal;
-				printf("Você atacou o Biofa por %d de dano!\n", danoTotal);
-				printf("O Boss está com %d de hp restantes.\n\n", boss->vida);
+				printf("VocÃª atacou o Biofa por %d de dano!\n", danoTotal);
+				printf("O Boss estÃ¡ com %d de hp restantes.\n\n", boss->vida);
 				printf("Sua Energia atual: %d", personagem->ienergia);
 				break;
 			} 
 		}	else if(escolha2 == 2){
-			  printf("1 - Chuva de Lâminas\n2 - Roubo de Vida\n");
-        int skill;
-        scanf("%d", &skill);
-        switch (skill) {
-            case 1:
-            	if (!verificarCooldown(&chuvaDeLaminas)) {
-                if (personagem->ienergia >= custoEnergia + 10) {
-                    personagem->ienergia -= custoEnergia + 10;
-                    boss->vida -= danoTotal + 20;
-                    printf("Chuva de Lâminas causou %d de dano!\n", danoTotal + 20);
-                    printf("O monstro está com %d de hp restantes.\n\n", boss->vida);
-                   	printf("\nSua Energia atual: %d\n", personagem->ienergia);
-                } else {
-                    printf("\nVocê não tem energia suficiente!\n");
-                }
-                 atualizarCooldown(&chuvaDeLaminas);
-			} else {
-    		int tempoRestante = 
-			tempoRestanteCooldown(&chuvaDeLaminas);
-		}			
-                break;
-            case 2:
-            	if (!verificarCooldown(&rouboDeVida)) {
-                if (personagem->ienergia >= custoEnergia + 10) {
-                    personagem->ienergia -= custoEnergia + 10;
-                    boss->vida -= danoTotal;
-                    personagem->ivida += danoTotal / 2;
-                    printf("Você roubou %d de vida do monstro!\n", danoTotal);
-                    printf("O monstro está com %d de hp restantes.\n\n", boss->vida);
-                    printf("\nSua Energia atual: %d\n", personagem->ienergia);
-                    printf("Seu Hp atual: %d\n", personagem->ivida);
-                } else {
-                    printf("Você não tem energia suficiente!\n");
-                } 
-                 atualizarCooldown(&rouboDeVida);
-                 } else {
-    		int tempoRestante = 
-			tempoRestanteCooldown(&rouboDeVida);
-		}			
-                break;
+				printf("1 - MÃ¡scara das Sombras (Te deixa invÃ­sivel)\n2 - Festival do CaÃ§ador (Copia atributos inimigos)\n");
+				int skill;
+				scanf("%d", &skill);
+				switch(skill){
+					if(skill == 1){
+				printf("\nChuva de laminas!\n");
+				personagem->ienergia -= custoEnergia + 10;
+				boss->vida -= danoTotal + 20;
+				printf("VocÃª atacou o Biofa por %d de dano!\n", danoTotal + 20);
+				printf("O Boss estÃ¡ com %d de hp restantes.\n\n", boss->vida);
+				printf("Sua Energia atual: %d", personagem->ienergia);
+						break;
+					} else if(skill == 2){
+				printf("\nRoubo de vida!\n");
+				personagem->ienergia -= custoEnergia + 10;
+				boss->vida -= danoTotal;
+				personagem->ivida += danoTotal;
+				printf("VocÃª roubou %d de vida do boss Biofa!\n", danoTotal);
+				printf("O Boss estÃ¡ com %d de hp restantes.\n\n", boss->vida);
+				printf("Sua Energia atual: %d", personagem->ienergia);
+						break;
 					}
-				} else if(escolha2 == 3){
+				}
+			} else if(escolha2 == 3){
 				break;
 			}
 		break;
@@ -294,7 +154,7 @@ void atacarBoss(int classe, Atributos *personagem, Boss *boss) {
 
 
 
-// FunÃ§Ã£o para criar o Boss
+// FunÃƒÂ§ÃƒÂ£o para criar o Boss
 Boss criarBoss() {
     Boss boss;
     strcpy(boss.nome, "Biofa");
@@ -312,7 +172,7 @@ int calcularDanoBoss(Boss *boss) {
     int chanceCritico = rand() % 100;
     if (chanceCritico < 20) {
         dano *= 2;
-        printf("Dano Crítico!\n");
+        printf("Dano CrÃ­tico!\n");
     }
     dano += rand() % (boss->forca / 5);
     return dano;
@@ -321,28 +181,37 @@ int calcularDanoBoss(Boss *boss) {
 void bossAtaca(Boss *boss, Atributos *personagem) {
     int dano = calcularDanoBoss(boss);
     personagem->ivida -= dano;
-    printf("O %s atacou você com %d de dano!\n", boss->nome, dano);
+    printf("O %s atacou vocÃª com %d de dano!\n", boss->nome, dano);
 }
 
+//funcao pra introduzir o chefao Biofa
+void imprimirIntroBiofa(){
+	printf("\n---------------------------------INTRODUÃ‡ÃƒO---------------------------------\n");
+	printf("Na escuridÃ£o da montanha Dedo de Deus, um monstro mecÃ¢nico desperta.\n");
+	printf("Biofa, a criaÃ§Ã£o mais Ambiciosa de Fobia, foi concebida para um proposito sinistro:\n");
+	printf("impedir que o Heroi alcance o topo da montanha.\n");
+	printf("Onde o Rei DemÃ´nio Supremo, possessivo do corpo de MÃ¡rcio,\n");
+	printf("Mestre do Heroi, aguarda seu destino.\n");
+	getch();
+}
 
-
-// FunÃ§Ã£o para imprimir o status do Boss
+// FunÃƒÂ§ÃƒÂ£o para imprimir o status do Boss
 void imprimirBoss(Boss *boss) {
     printf("\n** O poderoso %s te desafiou! **\n", boss->nome);
     printf("\n------------------------------STATUS DO BOSS---------------------------------\n");
     printf("%s\n", boss->nome);
     printf("Vida: %d\n", boss->vida);
-    printf("Força: %d\n", boss->forca);
+    printf("ForÃ§a: %d\n", boss->forca);
 }
 
 void iniciarBatalhaContraBoss(int classe, Atributos *personagem, Boss *boss) {
-    // Lógica de batalha específica para o Boss
+    // LÃ³gica de batalha especÃ­fica para o Boss
     int turno = 0;
      while (personagem->ivida > 0 && boss->vida > 0){
      	 printf("Vida atual: %d\nVida de Biofa: %d\n", personagem->ivida, boss->vida);
          	if(turno == 0){
 	int escolha;
-   		printf(" 1. Atacar\n 2. Inventário\n 3. Fugir\n\n");
+   		printf(" 1. Atacar\n 2. InventÃ¡rio\n 3. Fugir\n\n");
     		scanf("%d", &escolha);
     		fflush(stdin);
 	switch(escolha){
@@ -351,19 +220,19 @@ void iniciarBatalhaContraBoss(int classe, Atributos *personagem, Boss *boss) {
 				turno = !turno;
 			break;
 		case 2:
-			printf(" INVENTÁRIO:\n");
-			printf(" Poções de vida pequena: %d\n", personagem->potionsHpMin);
-			printf(" Poções de vida grande: %d\n", personagem->potionsHpMax);
-			printf(" Poções de Energia pequena: %d\n", personagem->potionsEnergiaMin);
-			printf(" Poções de Energia Grande: %d\n\n", personagem->potionsEnergiaMax);
+			printf(" INVENTÃRIO:\n");
+			printf(" PoÃ§Ãµes de vida pequena: %d\n", personagem->potionsHpMin);
+			printf(" PoÃ§Ãµes de vida grande: %d\n", personagem->potionsHpMax);
+			printf(" PoÃ§Ãµes de Energia pequena: %d\n", personagem->potionsEnergiaMin);
+			printf(" PoÃ§Ãµes de Energia Grande: %d\n\n", personagem->potionsEnergiaMax);
 			inventario(personagem);
 			break;
 		case 3:
-			printf("\nVocê não pode fugir do Chefão.\n");
+			printf("\nVocÃª nÃ£o pode fugir do ChefÃ£o.\n");
 			turno = !turno;
 			break;
 		default:
-			printf("\nOpção inválida!");	
+			printf("\nOpÃ§Ã£o invÃ¡lida!");	
 		} 
 	} else {
             printf("\nTurno do Boss!\n");
@@ -377,10 +246,10 @@ void iniciarBatalhaContraBoss(int classe, Atributos *personagem, Boss *boss) {
 	  }
 	
 	if(personagem->ivida < 0){
-		printf("Você morreu.");
+		printf("VocÃª morreu.");
 		return;
 	} else if (boss->vida <= 0){
-		printf("\nVocê venceu!\n\n");
+		printf("\nVocÃª venceu!\n\n");
 		personagem->xp += rand() % 20 + 50;
 		printf("XP atual: %d", personagem->xp);
 		personagem->moeda += rand() % 20 + 100;
@@ -388,10 +257,9 @@ void iniciarBatalhaContraBoss(int classe, Atributos *personagem, Boss *boss) {
 	} if(personagem->xp >= 100){
 		personagem->xp -= personagem->xp;
 		personagem->nivel += 1;
-		printf("Você subiu de nível!\n");
-		printf("Nível atual: %d", personagem->nivel);
+		printf("VocÃª subiu de nÃ­vel!\n");
+		printf("NÃ­vel atual: %d", personagem->nivel);
 		atualizarAtributos(classe, personagem);
 	}
    
 }
-
