@@ -10,6 +10,8 @@
 #include "economia.h"
 #include "economia2.h"
 #include "biofa.h"
+#include "Fobia.h"
+#include "marciosupervilao.h"
 
 
 
@@ -235,7 +237,54 @@ lojaMedonho2(&Medonho2, &personagem[0]);
 getch();
 
 imprimirAtributos(&personagem[0]);
+printf("\n############################################\n");
+printf("\n############################################\n");
+printf("\n############################################\n");
 
+HabilidadeFobia habilidades[2] = {escudoDeEnergia, ataqueCibernetico};
+Boss2 boss2 = criarBoss2(habilidades);
+imprimirIntroFobia();
+imprimirBoss2(&boss2);
+iniciarBatalhaContraBoss2(classe, &personagem[0], &boss2);
+check(personagem);
+imprimirAtributos(&personagem[0]);
+
+getch();
+monstro = criarMonstrosRandom();
+imprimirMonstro(&monstro);
+iniciarbatalha(classe, &personagem[0], &monstro);
+check(personagem);
+getch();
+system("cls");
+
+imprimirAtributos(&personagem[0]);
+getch();
+monstro = criarMonstrosRandom();
+imprimirMonstro(&monstro);
+iniciarbatalha(classe, &personagem[0], &monstro);
+check(personagem);
+getch();
+system("cls");
+
+imprimirAtributos(&personagem[0]);
+getch();
+monstro = criarMonstrosRandom();
+imprimirMonstro(&monstro);
+iniciarbatalha(classe, &personagem[0], &monstro);
+check(personagem);
+getch();
+system("cls");
+
+ inicializarMedonho2(&Medonho2);
+ lojaMedonho2(&Medonho2, &personagem[0]);
+ getch();
+ 
+ HabilidadeMarcio habilidadesM[3] = {MaodaPerdicao, PactodoDemonio, Ambicaodiabolica};
+ Boss3 boss3 = criarboss3(habilidadesM);
+ imprimirIntroMarcio();
+ imprimirDialogoMarcio();
+ imprimirBoss3(&boss3);
+ iniciarBatalhaContraBoss3(classe, personagem, &boss3);
 
 return 0;
 }
