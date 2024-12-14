@@ -15,11 +15,11 @@ void inicializarMedonho2(Medonho2 *medonho2) {
 void lojaMedonho2(Medonho2 *medonho2, Atributos *personagem){
 	int a, escolhaLoja2, escolhaLoja3, b, choice, extra;
 printf("===============================LOJA DO MEDONHO===============================\n");
-printf(" 1 - Poções de vida pequenas: Preço: 50 moedas de ouro.       |   2 - Poções de vida grandes: Preço: 90 moedas de ouro.  \n", medonho2->pocaoHpMin, medonho2->pocaoHpMax);
-printf(" 3 - Poções de energia pequenas: Preço: 50 moedas de ouro.    |  4 - Poções de energia grandes: Preço: 90 moedas de ouro.  \n", medonho2->pocaoEnergiaMin, medonho2->pocaoEnergiaMax);
+printf(" 1 - PoÃ§Ãµes de vida pequenas: PreÃ§o: 50 moedas de ouro.       |   2 - PoÃ§Ãµes de vida grandes: PreÃ§o: 90 moedas de ouro.  \n", medonho2->pocaoHpMin, medonho2->pocaoHpMax);
+printf(" 3 - PoÃ§Ãµes de energia pequenas: PreÃ§o: 50 moedas de ouro.    |  4 - PoÃ§Ãµes de energia grandes: PreÃ§o: 90 moedas de ouro.  \n", medonho2->pocaoEnergiaMin, medonho2->pocaoEnergiaMax);
 printf("Upgrade: 350 moedas de ouro\n");
 printf("Dinheiro atual: %d", personagem->moeda);
-printf("\nEscolha: (1 - Poções / 2 - Upgrade/ 3 - Sair)\n");
+printf("\nEscolha: (1 - PoÃ§Ãµes / 2 - Upgrade/ 3 - Sair)\n");
 scanf("%d", &a);
 do {
  	 if(a == 1){
@@ -29,90 +29,90 @@ do {
 	scanf("%d", &escolhaLoja2);
 	switch(escolhaLoja2){
 	case 1:
-		printf("\nQuantas poções você quer?\n");
+		printf("\nQuantas poÃ§Ãµes vocÃª quer?\n");
 		scanf("%d", &choice);
 		if(personagem->moeda <= 0){
-			printf("\nVocê não tem moedas suficientes!\n");
+			printf("\nVocÃª nÃ£o tem moedas suficientes!\n");
 			break;
 		} else if(personagem->moeda > 50){
 			if(choice > 4){
-				printf("Não tenho mais que 4 poções comigo.\n");
+				printf("NÃ£o tenho mais que 4 poÃ§Ãµes comigo.\n");
 				break;
 			} else if(medonho2->pocaoHpMin > 0){
 			medonho2->pocaoHpMin -= choice;
 			personagem->potionsHpMin += choice ;
-			printf("\nVocê comprou %d poções pequenas!\n", choice);
+			printf("\nVocÃª comprou %d poÃ§Ãµes pequenas!\n", choice);
 			choice = choice * 50;
 			personagem->moeda = personagem->moeda - choice;
 			break;
 			} else{
-				printf("Minhas poções acabaram.");
+				printf("Minhas poÃ§Ãµes acabaram.");
 				break;
 			}
 		}
 	case 2:
-			printf("\nQuantas poções você quer?\n");
+			printf("\nQuantas poÃ§Ãµes vocÃª quer?\n");
 		scanf("%d", &choice);
 		if(personagem->moeda <= 0){
-			printf("\nVocê não tem moedas suficientes!\n");
+			printf("\nVocÃª nÃ£o tem moedas suficientes!\n");
 			break;
 		} else if(personagem->moeda > 50){
 			if(choice > 4){
-				printf("Não tenho mais que 4 poções comigo.\n");
+				printf("NÃ£o tenho mais que 4 poÃ§Ãµes comigo.\n");
 				break;
 			} else if(medonho2->pocaoHpMax > 0){
 			medonho2->pocaoHpMax -= choice;
 			personagem->potionsHpMax += choice ;
-			printf("\nVocê comprou %d poções grande!\n", choice);
+			printf("\nVocÃª comprou %d poÃ§Ãµes grande!\n", choice);
 			choice = choice * 50;
 		personagem->moeda = personagem->moeda - choice;
 			break;
 			} else{
-				printf("Minhas poções acabaram.");
+				printf("Minhas poÃ§Ãµes acabaram.");
 				break;
 			}
 		}
 	case 3:
-			printf("\nQuantas poções você quer?\n");
+			printf("\nQuantas poÃ§Ãµes vocÃª quer?\n");
 		scanf("%d", &choice);
 		if(personagem->moeda <= 0){
-			printf("\nVocê não tem moedas suficientes!\n");
+			printf("\nVocÃª nÃ£o tem moedas suficientes!\n");
 			break;
 		} else if(personagem->moeda > 50){
 			if(choice > 4){
-				printf("Não tenho mais que 4 poções comigo.\n");
+				printf("NÃ£o tenho mais que 4 poÃ§Ãµes comigo.\n");
 				break;
 			} else if(medonho2->pocaoEnergiaMin > 0){
 			medonho2->pocaoEnergiaMin -= choice;
 			personagem->potionsEnergiaMin += choice ;
-			printf("\nVocê comprou %d poções pequenas!\n", choice);
+			printf("\nVocÃª comprou %d poÃ§Ãµes pequenas!\n", choice);
 		choice = choice * 50;
 		personagem->moeda = personagem->moeda - choice;
 			break;
 			} else{
-				printf("Minhas poções acabaram.");
+				printf("Minhas poÃ§Ãµes acabaram.");
 				break;
 			}
 		}
 	case 4:
-			printf("\nQuantas poções você quer?\n");
+			printf("\nQuantas poÃ§Ãµes vocÃª quer?\n");
 			scanf("%d", &choice);
 		if(personagem->moeda <= 0){
-			printf("\nVocê não tem moedas suficientes!\n");
+			printf("\nVocÃª nÃ£o tem moedas suficientes!\n");
 			break;
 		} else if(personagem->moeda > 50){
 			if(choice > 4){
-				printf("Não tenho mais que 4 poções comigo.\n");
+				printf("NÃ£o tenho mais que 4 poÃ§Ãµes comigo.\n");
 				break;
 			} else if(medonho2->pocaoEnergiaMax > 0){
 			medonho2->pocaoEnergiaMax -= choice;
 			personagem->potionsEnergiaMax += choice ;
-			printf("\nVocê comprou %d poções grandes!\n", choice);
+			printf("\nVocÃª comprou %d poÃ§Ãµes grandes!\n", choice);
 			choice = choice * 50;
 			personagem->moeda = personagem->moeda - choice;
 			break;
 			} else{
-				printf("Minhas poções acabaram.");
+				printf("Minhas poÃ§Ãµes acabaram.");
 				break;
 			}
 		}
@@ -132,16 +132,16 @@ do {
 		personagem->moeda -= 350;
 		if(personagem->clava == 1){
 			personagem->iforca += 10;
-			printf("Sua clava foi melhorada! Você recebeu 10 de força!");
+			printf("Sua clava foi melhorada! VocÃª recebeu 10 de forÃ§a!");
 		} 	if(personagem->tomo == 1){
 			personagem->iinteligencia += 10;
-			printf("Seu tomo recebeu novas páginas! Você recebeu 10 de inteligência!");
+			printf("Seu tomo recebeu novas pÃ¡ginas! VocÃª recebeu 10 de inteligÃªncia!");
 			} if(personagem->arco == 1){
 			personagem->idestreza += 10;
-			printf("Seu arco foi melhorada! Você recebeu 10 de destreza!");
+			printf("Seu arco foi melhorada! VocÃª recebeu 10 de destreza!");
 				} if(personagem->adaga == 1){
 			personagem->iagilidade += 10;
-			printf("Sua adaga foi melhorada! Você recebeu 10 de agilidade!");
+			printf("Sua adaga foi melhorada! VocÃª recebeu 10 de agilidade!");
 		}
 	}
 	break;
@@ -149,7 +149,7 @@ do {
 		lojaMedonho2(medonho2, personagem);
     break;
 	default:
-		printf("Opção inválida!");
+		printf("OpÃ§Ã£o invÃ¡lida!");
 		break;
 	}
 }
