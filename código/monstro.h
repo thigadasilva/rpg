@@ -31,17 +31,17 @@ char *criaturas[] ={
 
 "o Goblin",
 "o Troll",
-"o Dragão",
+"o DragÃ£o",
 "o Orc",
 "o Elfo Negro",
-"o Anão",
+"o AnÃ£o",
 "o Lich",
 "o Vampiro",
 "o Lobisomem",
-"o Demônio",
+"o DemÃ´nio",
 "o Gigante",
 "o Minotauro",
-"o Cíclope",
+"o CÃ­clope",
 };
 
 const int quantidadeNomes = 12;
@@ -71,6 +71,6 @@ void imprimirMonstro(Monstro *monstro){
     printf("\n---------------------------------STATUS---------------------------------\n");
     printf("%s\n", monstro->nome);
     printf("Vida: %d\n", monstro->vida);
-    printf("Força: %d\n\n", monstro->forca);
+    printf("ForÃ§a: %d\n\n", monstro->forca);
     getch();
 }
