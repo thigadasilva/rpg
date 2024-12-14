@@ -417,9 +417,9 @@ void iniciarBatalhaContraBoss(int classe, Atributos *personagem, Boss *boss) {
 		return;
 	} else if (boss->vida <= 0){
 		printf("\nVocê venceu!\n\n");
-		personagem->xp += rand() % 20 + 50;
+		personagem->xp += rand() % 70 + 50;
 		printf("XP atual: %d", personagem->xp);
-		personagem->moeda += rand() % 20 + 100;
+		personagem->moeda += rand() % 300 + 100;
 		printf("\n Moedas de ouro atuais: %d\n", personagem->moeda);
 	} if(personagem->xp >= 100){
 		personagem->xp -= personagem->xp;
