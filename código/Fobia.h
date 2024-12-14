@@ -1,14 +1,48 @@
 // Estrutura do Boss2
 typedef struct {
     char nome[50];
+    int dano;
+    int custoEnergia;
+    int cooldown;
+} HabilidadeFobia;
+
+
+typedef struct {
+    char nome[50];
     int vida;
     int forca;
     int ataque;
+    HabilidadeFobia habilidades[2];
 }Boss2;
 
 
+
+HabilidadeFobia escudoDeEnergia = {
+    "Escudo de Energia",
+    0, 
+    20,
+    30
+};
+HabilidadeFobia ataqueCibernetico = {
+    "Ataque Cibernético",
+    50,
+    30,
+    45
+};
+
+int calcularDanoBoss2(Boss2 *boss2) {
+    int dano = boss2->forca / 3;
+    int chanceCritico = rand() % 100;
+    if (chanceCritico < 20) {
+        dano *= 2;
+        printf("Dano Crítico!\n");
+    }
+    dano += rand() % (boss2->forca / 5);
+    return dano;
+}
+
 void atacarBoss2(int classe, Atributos *personagem, Boss2 *boss2) {
-		int berserkerDuracao = 30;
+	int berserkerDuracao = 30;
 	int berserkerInicio = 0;
 	int aumentoForca;
     int custoEnergia = 10;
@@ -319,36 +353,43 @@ void atacarBoss2(int classe, Atributos *personagem, Boss2 *boss2) {
 	}
 }
 
+void protecaoEscudoDeEnergia(Boss2 *boss2) {
+    boss2->vida += escudoDeEnergia.dano;
+    printf("%s ativou Escudo de Energia!\n", boss2->nome);
+}
 
-// FunÃ§Ã£o para criar o Boss
-Boss criarBoss2() {
+void danoataqueCibernetico(Boss2 *boss2, Atributos *personagem) {
+    int dano = calcularDanoBoss2(boss2) + ataqueCibernetico.dano / 2;
+    personagem->ivida -= dano;
+    printf("%s usou Ataque Cibernético em você!\n", boss2->nome);
+    printf("Você tomou %d de dano!", dano);
+}
+
+Boss2 criarBoss2(HabilidadeFobia habilidades[2]) {
     Boss2 boss2;
     strcpy(boss2.nome, "Fobia");
-    boss2.vida = 420;  
-    boss2.forca = 37;  
+    boss2.vida = 1000;  
+    boss2.forca = 75;  
+    boss2.habilidades[0] = habilidades[0];
+    boss2.habilidades[1] = habilidades[1];
     return boss2;
 }
 
-
-
-
-
-int calcularDanoBoss(Boss2 *boss2) {
-    int dano = boss2->forca / 1.5;
-    int chanceCritico = rand() % 100;
-    if (chanceCritico < 20) {
-        dano *= 2;
-        printf("Dano Crítico!\n");
-    }
-    dano += rand() % (boss2->forca / 5);
-    return dano;
-}
-
-void bossAtaca(Boss2 *boss2, Atributos *personagem) {
-    int dano = calcularDanoBoss2(boss2);
+void bossAtaca2(Boss2 *boss2, Atributos *personagem) {
+      if (rand() % 100 < 30) { // Chance de usar habilidade
+        int habilidadeAleatoria = rand() % 2;
+        if (habilidadeAleatoria == 0) {
+            protecaoEscudoDeEnergia(boss2);
+        } else {
+            danoataqueCibernetico(boss2, personagem);
+        }
+    } else {
+          int dano = calcularDanoBoss2(boss2);
     personagem->ivida -= dano;
     printf("O %s atacou você com %d de dano!\n", boss2->nome, dano);
+    }
 }
+
 
 //funcao pra introduzir o chefao Fobia
 void imprimirIntroFobia(){
@@ -360,12 +401,12 @@ void imprimirIntroFobia(){
 	getch();
 }
 // FunÃ§Ã£o para imprimir o status do Boss
-void imprimirBoss(Boss *boss) {
-    printf("\n** O poderoso %s te desafiou! **\n", boss->nome);
+void imprimirBoss2(Boss2 *boss2) {
+    printf("\n** O poderoso %s te desafiou! **\n", boss2->nome);
     printf("\n------------------------------STATUS DO BOSS---------------------------------\n");
-    printf("%s\n", boss->nome);
-    printf("Vida: %d\n", boss->vida);
-    printf("Força: %d\n", boss->forca);
+    printf("%s\n", boss2->nome);
+    printf("Vida: %d\n", boss2->vida);
+    printf("Força: %d\n", boss2->forca);
 }
 
 void iniciarBatalhaContraBoss2(int classe, Atributos *personagem, Boss2 *boss2) {
@@ -401,7 +442,7 @@ void iniciarBatalhaContraBoss2(int classe, Atributos *personagem, Boss2 *boss2) 
 	} else {
             printf("\nTurno do Boss!\n");
             getch();
-            boss2Ataca(boss2, personagem);
+            bossAtaca2(boss2, personagem);
             turno = !turno;
         }
          if (personagem->ivida <= 0 || boss2->vida <= 0) {
@@ -414,9 +455,9 @@ void iniciarBatalhaContraBoss2(int classe, Atributos *personagem, Boss2 *boss2) 
 		return;
 	} else if (boss2->vida <= 0){
 		printf("\nVocê venceu!\n\n");
-		personagem->xp += rand() % 20 + 50;
+		personagem->xp += rand() % 70 + 50;
 		printf("XP atual: %d", personagem->xp);
-		personagem->moeda += rand() % 20 + 100;
+		personagem->moeda += rand() % 100 + 300;
 		printf("\n Moedas de ouro atuais: %d\n", personagem->moeda);
 	} if(personagem->xp >= 100){
 		personagem->xp -= personagem->xp;
