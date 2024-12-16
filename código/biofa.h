@@ -39,14 +39,14 @@ void atacarBoss(int classe, Atributos *personagem, Boss *boss) {
 				boss->vida -= danoCritico;
 			
 				printf("O monstro está com %d de hp restantes.\n", boss->vida);
-					printf("Energia atual: %d", personagem->ienergia);
+					printf("Energia atual: %d\n", personagem->ienergia);
 				turno += 1;;
 				break;
 	} else{
 		boss->vida -= danoTotal;
 		printf("Você atacou o monstro por %d de dano!\n", danoTotal);
 			printf("O monstro está com %d de hp restantes.\n", boss->vida);
-			printf("Energia atual: %d", personagem->ienergia);
+			printf("Energia atual: %d\n", personagem->ienergia);
 			turno += 1;
 			break;
 	}
@@ -99,7 +99,7 @@ void atacarBoss(int classe, Atributos *personagem, Boss *boss) {
 } else if (berserkerInicio != 0) {
     personagem->iforca -= aumentoForca;
     berserkerInicio = 0;
-    printf("A fúria do Berseker acabou.");
+    printf("A fúria do Berseker acabou.\n");
 }
                 break;
 			}
@@ -116,14 +116,14 @@ void atacarBoss(int classe, Atributos *personagem, Boss *boss) {
 				boss->vida -= danoCritico;
 			
 				printf("O monstro está com %d de hp restantes.\n", boss->vida);
-				printf("Sua Energia atual: %d", personagem->ienergia);
+				printf("Sua Energia atual: %d\n", personagem->ienergia);
 			turno += 1;
 				break;
 	} else{
 				boss->vida -= danoTotal;
 				printf("Você atacou o monstro por %d de dano!\n", danoTotal);
 			printf("O monstro está com %d de hp restantes.\n\n", boss->vida);
-				printf("Sua Energia atual: %d", personagem->ienergia);
+				printf("Sua Energia atual: %d\n", personagem->ienergia);
 		turno += 1;
 			break;
 			} 
@@ -136,8 +136,8 @@ void atacarBoss(int classe, Atributos *personagem, Boss *boss) {
             	if (!verificarCooldown(&drenadorDeAlmas)) {
                 if (personagem->ienergia >= custoEnergia + 10) {
                     personagem->ienergia -= custoEnergia + 10;
-                    boss->vida -= danoTotal + 20;
-                    printf("Drenador de Almas causou %d de dano!\n", danoTotal + 20);
+                    boss->vida -= danoTotal  *= 2;
+                    printf("Drenador de Almas causou %d de dano!\n", danoTotal  *= 2);
                     printf("O monstro está com %d de hp restantes.\n\n", boss->vida);
                    	printf("\nSua Energia atual: %d\n", personagem->ienergia);
                    	turno = !turno;
@@ -153,8 +153,8 @@ void atacarBoss(int classe, Atributos *personagem, Boss *boss) {
             	if (!verificarCooldown(&furiaDePegasus)) {
                 if (personagem->ienergia >= custoEnergia + 10) {
                     personagem->ienergia -= custoEnergia + 10;
-                    boss->vida -= danoTotal + 10;
-                    printf("Você retirou %d de vida do monstro!\n", danoTotal);
+                    boss->vida -= danoTotal  *= 2;
+                    printf("Você retirou %d de vida do monstro!\n", danoTotal  *= 2);
                     printf("O monstro está com %d de hp restantes.\n\n", boss->vida);
                     printf("\nSua Energia atual: %d\n", personagem->ienergia);
                     turno = !turno;
@@ -181,14 +181,14 @@ void atacarBoss(int classe, Atributos *personagem, Boss *boss) {
 				
 		
 				printf("O monstro está com %d de hp restantes.\n", boss->vida);
-					printf("Sua Energia atual: %d", personagem->ienergia);
+					printf("Sua Energia atual: %d\n", personagem->ienergia);
 				turno += 1;
 					break;
 	} else{
 				boss->vida -= danoTotal;
 				printf("Você atacou o monstro por %d de dano!\n", danoTotal);
 				printf("O monstro está com %d de hp restantes.\n\n", boss->vida);
-					printf("Sua Energia atual: %d", personagem->ienergia);
+					printf("Sua Energia atual: %d\n", personagem->ienergia);
 				turno += 1;
 					break;
 			} 
@@ -252,14 +252,14 @@ void atacarBoss(int classe, Atributos *personagem, Boss *boss) {
 				
 				
 				printf("O monstro está com %d de hp restantes.\n", boss->vida);
-					printf("Sua Energia atual: %d", personagem->ienergia);
+					printf("Sua Energia atual: %d\n", personagem->ienergia);
 				turno += 1;
 					break;
 	} else{
 				boss->vida -= danoTotal;
 				printf("Você atacou o monstro por %d de dano!\n", danoTotal);
 				printf("O monstro está com %d de hp restantes.\n\n", boss->vida);
-					printf("Sua Energia atual: %d", personagem->ienergia);
+					printf("Sua Energia atual: %d\n", personagem->ienergia);
 				turno += 1;
 					break;
 			} 
@@ -375,7 +375,7 @@ void iniciarBatalhaContraBoss(int classe, Atributos *personagem, Boss *boss) {
     // Lógica de batalha específica para o Boss
     int turno = 0;
      while (personagem->ivida > 0 && boss->vida > 0){
-     	 printf("Vida atual: %d\nVida de Biofa: %d\n", personagem->ivida, boss->vida);
+     	 printf("\nVida atual: %d\nEnergia atual: %d\n", personagem->ivida, personagem->ienergia);
          	if(turno == 0){
 	int escolha;
    		printf(" 1. Atacar\n 2. Inventário\n 3. Fugir\n\n");
