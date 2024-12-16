@@ -95,4 +95,3 @@ void atualizarEnergia(Atributos *personagem, int custoEnergia) {
         personagem->ienergia = 0;
     }
 }
-
