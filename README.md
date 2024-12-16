@@ -1,5 +1,5 @@
 # rpg
- RPG desenvolvido em C.
+ RPG desenvolvido em C com a equipe: Thiago da Silva, Diego Ferreira, Levi Oliveira, Lucas Oliveira.
 
 ## Tela de atributos:
  ![image](https://github.com/user-attachments/assets/2f1c54ef-4e78-4428-845f-cb55e312304a)
