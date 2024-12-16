@@ -262,7 +262,7 @@ getch();
 monstro = criarMonstrosRandom();
 imprimirMonstro(&monstro);
 iniciarbatalha(classe, &personagem[0], &monstro);
-check(personagem);
+check(personagem);a
 getch();
 system("cls");
 
