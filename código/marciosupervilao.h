@@ -75,14 +75,14 @@ void atacarMarcio(int classe, Atributos *personagem, Boss3 *boss3){
 				boss3->vida -= danoCritico;
 			
 				printf("Márcio está com %d de hp restantes.\n", boss3->vida);
-					printf("Energia atual: %d", personagem->ienergia);
+					printf("Energia atual: %d\n", personagem->ienergia);
 				turno += 1;;
 				break;
 	} else{
 		boss3->vida -= danoTotal;
 		printf("Você atacou Márcio por %d de dano!\n", danoTotal);
 			printf("Márcio está com %d de hp restantes.\n", boss3->vida);
-			printf("Energia atual: %d", personagem->ienergia);
+			printf("Energia atual: %d\n", personagem->ienergia);
 			turno += 1;
 			break;
 	}
@@ -152,14 +152,14 @@ void atacarMarcio(int classe, Atributos *personagem, Boss3 *boss3){
 				boss3->vida -= danoCritico;
 			
 				printf("Márcio está com %d de hp restantes.\n", boss3->vida);
-				printf("Sua Energia atual: %d", personagem->ienergia);
+				printf("Sua Energia atual: %d\n", personagem->ienergia);
 			turno += 1;
 				break;
 	} else{
 				boss3->vida -= danoTotal;
 				printf("Você atacou o monstro por %d de dano!\n", danoTotal);
 			printf("Márcio está com %d de hp restantes.\n\n", boss3->vida);
-				printf("Sua Energia atual: %d", personagem->ienergia);
+				printf("Sua Energia atual: %d\n", personagem->ienergia);
 		turno += 1;
 			break;
 			} 
@@ -217,14 +217,14 @@ void atacarMarcio(int classe, Atributos *personagem, Boss3 *boss3){
 				
 		
 				printf("Márcio está com %d de hp restantes.\n", boss3->vida);
-					printf("Sua Energia atual: %d", personagem->ienergia);
+					printf("Sua Energia atual: %d\n", personagem->ienergia);
 				turno += 1;
 					break;
 	} else{
 				boss3->vida -= danoTotal;
 				printf("Você atacou Márcio por %d de dano!\n", danoTotal);
 				printf("Márcio está com %d de hp restantes.\n\n", boss3->vida);
-					printf("Sua Energia atual: %d", personagem->ienergia);
+					printf("Sua Energia atual: %d\n", personagem->ienergia);
 				turno += 1;
 					break;
 			} 
@@ -370,12 +370,35 @@ void aplicarPactodoDemonio(Boss3 *boss3) {
     printf("%s está mais forte agora!\n", boss3->nome);
 }
 void aplicarAmbicaodiabolica(Boss3 *boss3, Atributos *personagem) {
-    personagem->iforca -= Ambicaodiabolica.dano;
-     personagem->iinteligencia -= Ambicaodiabolica.dano;
-      personagem->idestreza -= Ambicaodiabolica.dano;
-       personagem->iagilidade -= Ambicaodiabolica.dano;
+	int usosAmbicaoDiabolica = 0;
+	int reducao = Ambicaodiabolica.dano;
+if (usosAmbicaoDiabolica < 2) {
+     if (personagem->iforca - reducao < 0) {
+        personagem->iforca = 0;
+    } else {
+        personagem->iforca -= reducao;
+    }
+       if (personagem->iinteligencia - reducao < 0) {
+        personagem->iinteligencia = 0;
+    } else {
+        personagem->iinteligencia -= reducao;
+    }
+       if (personagem->idestreza - reducao < 0) {
+        personagem->idestreza = 0;
+    } else {
+        personagem->idestreza -= reducao;
+    }
+       if (personagem->iagilidade - reducao < 0) {
+        personagem->iagilidade = 0;
+    } else {
+        personagem->iagilidade -= reducao;
+    }
     printf("%s ativou Ambição Demoníaca!\n", boss3->nome);
     printf("Você foi enfraquecido!\n");
+    usosAmbicaoDiabolica++;
+} else {
+        printf("%s não pode usar Ambição Diabólica novamente.\n", boss3->nome);
+    }
 }
 
 Boss3 criarboss3(HabilidadeMarcio habilidadesM[3]) {
@@ -418,19 +441,17 @@ void imprimirIntroMarcio(){
 }
 
 void imprimirDialogoMarcio(){
-	printf("Então... Você conseguiu... Subir ao topo...");
+	printf("Então... Você conseguiu... Subir ao topo...\n");
 	getch();
 	printf("Você, uma criatura tão miserável e cheia de si, bancando ser o HERÓI,\n É o que esse mundo menos precisa.\n");
-	getch();
 	printf("Antes de você, vieram 4 heróis lendários, que conseguiram me expurgar para fora desse mundo.\n");
-	getch();
 	printf("Mas graças a um humano, com tamanha arrogancia, conhecedor de TAL PODER...\n");
 	getch();
-	printf("Livrou-me do selo, que me guardava, oferecendo a Alma de um lendario HERÓI, que ainda habitava esse mundo...");
+	printf("Livrou-me do selo, que me guardava, oferecendo a Alma de um lendario HERÓI, que ainda habitava esse mundo...\n");
 	getch();
-	printf("Agora, ninguém irá me deter! Nem mesmo você.\n Prepare-se para o seu último confronto.\n ");
+	printf("Agora, ninguém irá me deter! Nem mesmo você.\n ");
 	getch();
-	printf("Essa será seu último dia no mercado de trabal-\n Digo, aqui será o seu último confronto!!!\n");
+	printf("Essa será seu último dia no mercado de trabal-\n Digo, aqui será o seu último confronto!!!\n\n");
 	getch();
 	printf("Raios e trovões podem ser ouvidos de fundo, uma forte tempestade e\numa forte ventania surge soprando tudo\n para os ares.\n");
 }
@@ -448,7 +469,7 @@ void iniciarBatalhaContraBoss3(int classe, Atributos *personagem, Boss3 *boss3) 
     // Lógica de batalha específica para o boss3
     int turno = 0;
      while (personagem->ivida > 0 && boss3->vida > 0){
-     	 printf("Vida atual: %d\nVida de Marcio, o Rei Demônio Supremo: %d\n", personagem->ivida, boss3->vida);
+     	 printf("\nVida atual: %d\n Energia atual: %d\n", personagem->ivida, personagem->ienergia);
          	if(turno == 0){
 	int escolha;
    		printf(" 1. Atacar\n 2. Inventário\n 3. Fugir\n\n");
@@ -480,9 +501,7 @@ void iniciarBatalhaContraBoss3(int classe, Atributos *personagem, Boss3 *boss3) 
             atacarBoss3(classe, personagem, boss3);
             turno = !turno;
         }
-         if (personagem->ivida <= 0 || boss3->vida <= 0) {
-            break;
-        }
+       
 	  
 	  
 	  
@@ -495,27 +514,31 @@ void iniciarBatalhaContraBoss3(int classe, Atributos *personagem, Boss3 *boss3) 
 		        personagem->iagilidade += 10;
 		        personagem->idestreza += 10;
 		        
-		         int heroiAleatorio = rand() % 4;
+		         int heroiAleatorio = 0;
 		        switch (heroiAleatorio) {
 		        	case 0:
 		        	printf("Você sente uma presença poderosa e benevolente.\n");
 		        	printf("Diego, a lenda dos Guerreiros está presente.\n");
 		        	printf("Você sente Diego te fortalecendo.\n");
+		        	heroiAleatorio++;
 		        	break;
 					case 1:
 					printf("Você sente uma forte presença.\n");
 		        	printf("Lucas, o Mestre dos Magos está presente.\n");
 		        	printf("Você sente Lucas te fortalecendo.\n");
+		        	heroiAleatorio++;
 		        	break;
 					case 2:
 					printf("Você pensou que estava prestes a morrer, mas\n");
 		        	printf("Levi, o maior dos Arqueiros está presente.\n");
 		        	printf("Você sente Levi te fortalecendo.\n");
+		        	heroiAleatorio++;
 		        	break;
 					case 3:
 					printf("Algo toca as suas costas.\n");
 		        	printf("Thiago, o Rei dos Ladrões está presente.\n");
 		        	printf("Você sente Thiago te fortalecendo.\n");
+		        	heroiAleatorio++;
 					break;
 			}
 		      		  printf("Vida restaurada: %d\n", personagem->ivida);
@@ -528,12 +551,12 @@ void iniciarBatalhaContraBoss3(int classe, Atributos *personagem, Boss3 *boss3) 
 }  
 }
 if (boss3->vida <= 0){
-		printf("\nVocê venceu!\n\n");
+		printf("\n\nVocê venceu!\n\n");
 		printf("Os espíritos dos lendários heróis estão muito orgulhosos de você.\n");
-		printf("Márcio morreu, porém isto não deve ser celebrado.");
+		printf("Márcio morreu, porém isto não deve ser celebrado.\n");
 		printf("Ele estava sendo controlado pelo Rei Demônio.\n");
-		printf("E infelizmente, não havia outra saída.");
-		printf("O mundo jaz em paz agora que novamente, o Rei demônio foi expurgado daqui.");
+		printf("E infelizmente, não havia outra saída.\n");
+		printf("O mundo jaz em paz agora que novamente, o Rei demônio foi expurgado daqui.\n");
 		return;
 	} 
 }
