@@ -108,7 +108,7 @@ imprimirAtributos(&personagem[0]);
 
 
 printf("\n\n Voce está adiante da Montanha Dedo de Deus, uma fortaleza inexpugnável.\n");
-printf(" Márcio, outrora um herói, agora comandante das forças sombrias, asguarda no topo.\n");
+printf(" Márcio, outrora um herói, agora comandante das forças sombrias, aguarda no topo.\n");
 printf(" Sua missão: derrotá-lo e restaurar a paz...\n\n");
 getch();
 printf("* Você caminhou até a entrada da montanha, há uma silhueta de um senhor encapuzado e misterioso. Ele aguarda ansioso por você.\n");
@@ -128,13 +128,9 @@ switch(classe){
 			break;	
 }
 getch();
-printf("\n Senhor misterioso: Tanto faz... a Sua jornada será forjada por calorosas lutas, antes da verdadeira batalha,\n");
+printf("\n Senhor misterioso: caro guerreiro, a Sua jornada será forjada por calorosas lutas, antes da verdadeira batalha,\n");
 getch();
 printf(" O destino do mundo aguarda, mas o caminho está infestado dos demais diversos perigos, mortais para civis comuns.\n");
-getch();
-printf(" Coragem, habilidade e magia, serão suas únicas armas contra as forças do atual Rei Demônio Supremo.\n");
-getch();
-printf(" Mas, a sua arma mais forte, e a tua DETERMINAÇÂO!\n");
 getch();
 printf(" Quem você está buscando, está sentado no Topo da montanha, esperando guerreiros formidáveis para enfrenta-lo...");
 getch();
@@ -229,20 +225,17 @@ getch();
 system("cls");
 
 imprimirAtributos(&personagem[0]);
-printf("\nAh... nos encontramos de novo! \nPelo visto você conseguiu passar de todos os desafios até aqui.\n");
-getch();
-printf("\nEsse é o fim da linha, sentia que os 4 herois lendarios te abençoaram no caminho de sua jornada,\n");
-getch();
-printf("\naté aqui. Mas enfim.\n");
-getch();
+printf("\nMedonho: Oh, está muito, muito mais forte do que antes.\n");
+printf("\nMedonho: Suas armas parecem enfraquecidas.\n");
+printf("\nMedonho: Deixe-me cuidar disso para você, tenho mais poções também.\n");
 inicializarMedonho2(&Medonho2);
 lojaMedonho2(&Medonho2, &personagem[0]);
 getch();
 
 imprimirAtributos(&personagem[0]);
-printf("\n Não se apresse! Olhe com calma e escolha o que realmente irá ajudá-lo em sua jornada.\n");
-printf("\n \n");
-printf("\n Que os deuses estejam contigo, que vós não pereça na batalha final contra o inimigo\n Salve aquele que um dia, foi meu companheiro, e amigo\n");
+printf("\nMedonho: Mais a frente, o criador de Biofa te aguarda.\n");
+printf("\nMedonho: Ouvi dizer que ele é muito mais forte que Biofa, sua criação.\n");
+printf("\nMedonho: Inclusive, ele está muito irritado contigo. Prepare-se.\n");
 
 HabilidadeFobia habilidades[2] = {escudoDeEnergia, ataqueCibernetico};
 Boss2 boss2 = criarBoss2(habilidades);
@@ -265,7 +258,7 @@ getch();
 monstro = criarMonstrosRandom();
 imprimirMonstro(&monstro);
 iniciarbatalha(classe, &personagem[0], &monstro);
-check(personagem);a
+check(personagem);
 getch();
 system("cls");
 
