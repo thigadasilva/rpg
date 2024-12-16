@@ -1,6 +1,6 @@
 # rpg
  RPG desenvolvido em C com a equipe: Thiago da Silva, Diego Ferreira, Levi Oliveira, Lucas Oliveira. </br>
- Jogo desenvolvido através da IDE: Dev C++ 
+ Jogo desenvolvido através da IDE: Dev C++ </br>
  ![image](https://github.com/user-attachments/assets/9d453223-5e8c-44ed-996c-50896bf7be33)
 
 
