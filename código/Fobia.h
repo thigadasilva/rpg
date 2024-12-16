@@ -470,4 +470,3 @@ void iniciarBatalhaContraBoss2(int classe, Atributos *personagem, Boss2 *boss2) 
 }
 
 
-
