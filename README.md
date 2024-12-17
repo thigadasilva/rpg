@@ -3,6 +3,8 @@
  Jogo desenvolvido através da IDE: Dev C++ </br>
  ![image](https://github.com/user-attachments/assets/9d453223-5e8c-44ed-996c-50896bf7be33)
 
+## Jogo
+![image](https://github.com/user-attachments/assets/3929c3eb-00cc-4a8b-bb94-efa51afd5deb)
 
 ## Tela de atributos:
  ![image](https://github.com/user-attachments/assets/2f1c54ef-4e78-4428-845f-cb55e312304a)
